@@ -69,21 +69,20 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.25; margin: 0; font-weigh
 .nav-links a { color: var(--muted); }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
 
-.theme-toggle {
+.theme-switch {
+  display: inline-flex; padding: 2px; gap: 2px;
+  border: 1px solid var(--rule); border-radius: 999px;
+}
+.theme-switch button {
   display: grid; place-items: center;
-  width: 30px; height: 30px; padding: 0;
-  border: 0; background: none; color: var(--muted);
+  width: 28px; height: 26px; padding: 0;
+  border: 0; border-radius: 999px; background: none; color: var(--muted);
   cursor: pointer;
 }
-.theme-toggle:hover { color: var(--text); }
-.theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.icon-moon { display: none; }
-:root[data-theme="dark"] .icon-sun { display: none; }
-:root[data-theme="dark"] .icon-moon { display: block; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .icon-sun { display: none; }
-  :root:not([data-theme="light"]) .icon-moon { display: block; }
-}
+.theme-switch button:hover { color: var(--text); }
+.theme-switch button[aria-pressed="true"] { background: var(--rule); color: var(--text); }
+.theme-switch button:focus-visible { outline: 2px solid var(--link); outline-offset: 1px; }
+.theme-switch svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Layout: profile sidebar + content column */
 .layout {
