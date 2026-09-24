@@ -135,7 +135,7 @@
             <span>Distinguishable explanations</span><span class="arrow" aria-hidden="true">→</span>
             <span>Reliable predictions</span>
           </div>
-          <p class="tags">Active Perception · Tactile Sensing · Visuo-Tactile Fusion · System Identification · Experimental Design</p>
+          <p class="tags">Active Perception, Tactile Sensing, Visuo-Tactile Fusion, System Identification, Experimental Design</p>
         </article>
 
         <article class="research-item">
@@ -195,7 +195,7 @@
             </div>
             <figcaption>Success rate over 200 held-out seeds @ mean steps to success (fewer is faster). Within-limit re-timing matches or beats the frozen policy while shortening episodes; uniform 2× collapses on Can and ToolHang.</figcaption>
           </figure>
-          <p class="tags">Imitation Learning · Flow-Matching Policies · Robomimic / Robosuite · Humanoid Motion Tracking · Real-Robot Replay</p>
+          <p class="tags">Imitation Learning, Flow-Matching Policies, Robomimic / Robosuite, Humanoid Motion Tracking, Real-Robot Replay</p>
         </article>
 
         <article class="research-item">
@@ -221,18 +221,18 @@
           <figure class="media table-figure">
             <div class="table-wrap">
               <table class="data-table">
-                <thead><tr><th>Stream</th><th>Base</th><th>Update 1</th><th>Update 2 (ours)</th><th>Unconstrained refit</th><th>Protected replayed exactly<br><small>ours · unconstrained</small></th></tr></thead>
+                <thead><tr><th>Stream</th><th>Base</th><th>Update 1</th><th>Update 2 (ours)</th><th>Unconstrained refit</th><th>Protected replayed exactly<br><small>ours vs. unconstrained</small></th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">CMU-A (NPMP)</th><td>5</td><td>26</td><td><b>33</b></td><td>46</td><td><b>22/22</b> · 8/22</td></tr>
-                  <tr><th scope="row">CMU-B (NPMP)</th><td>22</td><td>27</td><td><b>38</b></td><td>42</td><td><b>21/21</b> · 10/21</td></tr>
-                  <tr><th scope="row">G1-A (SONIC)</th><td>20</td><td>24</td><td><b>33</b></td><td>35</td><td><b>23/23</b> · 13/23</td></tr>
-                  <tr><th scope="row">G1-B (SONIC)</th><td>13</td><td>16</td><td><b>18</b></td><td>21</td><td><b>17/17</b> · 6/17</td></tr>
+                  <tr><th scope="row">CMU-A (NPMP)</th><td>5</td><td>26</td><td><b>33</b></td><td>46</td><td><b>22/22</b> vs. 8/22</td></tr>
+                  <tr><th scope="row">CMU-B (NPMP)</th><td>22</td><td>27</td><td><b>38</b></td><td>42</td><td><b>21/21</b> vs. 10/21</td></tr>
+                  <tr><th scope="row">G1-A (SONIC)</th><td>20</td><td>24</td><td><b>33</b></td><td>35</td><td><b>23/23</b> vs. 13/23</td></tr>
+                  <tr><th scope="row">G1-B (SONIC)</th><td>13</td><td>16</td><td><b>18</b></td><td>21</td><td><b>17/17</b> vs. 6/17</td></tr>
                 </tbody>
               </table>
             </div>
             <figcaption>Recoveries out of 48 withheld perturbations per stream. An unconstrained refit recovers more, but reproduces far fewer protected trajectories and stops eight of them from completing at all.</figcaption>
           </figure>
-          <p class="tags">Humanoid Control · Residual Feedback Skills · Gated Skill Composition · Behavior Preservation</p>
+          <p class="tags">Humanoid Control, Residual Feedback Skills, Gated Skill Composition, Behavior Preservation</p>
         </article>
 
         <article class="research-item">
@@ -259,16 +259,16 @@
               <table class="data-table">
                 <thead><tr><th>Held-out cohort</th><th>Worst loss</th><th>90° rotation</th><th>120° rotation</th><th>Input-map mean</th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">Reacher · identify &amp; invert</th><td>56.4 <small>(delay)</small></td><td>+29.8</td><td>+37.8</td><td>+19.2</td></tr>
-                  <tr class="ours"><th scope="row">Reacher · ECA</th><td><b>0.0</b></td><td><b>+31.7</b></td><td><b>+44.3</b></td><td><b>+26.6</b></td></tr>
-                  <tr><th scope="row">Pusher · identify &amp; invert</th><td>116.6 <small>(delay)</small></td><td>+75.2</td><td>+98.4</td><td>+41.4</td></tr>
-                  <tr class="ours"><th scope="row">Pusher · ECA</th><td><b>1.2</b> <small>(gain 0.5)</small></td><td><b>+75.9</b></td><td><b>+104.7</b></td><td><b>+54.7</b></td></tr>
+                  <tr><th scope="row">Reacher, identify &amp; invert</th><td>56.4 <small>(delay)</small></td><td>+29.8</td><td>+37.8</td><td>+19.2</td></tr>
+                  <tr class="ours"><th scope="row">Reacher, ECA</th><td><b>0.0</b></td><td><b>+31.7</b></td><td><b>+44.3</b></td><td><b>+26.6</b></td></tr>
+                  <tr><th scope="row">Pusher, identify &amp; invert</th><td>116.6 <small>(delay)</small></td><td>+75.2</td><td>+98.4</td><td>+41.4</td></tr>
+                  <tr class="ours"><th scope="row">Pusher, ECA</th><td><b>1.2</b> <small>(gain 0.5)</small></td><td><b>+75.9</b></td><td><b>+104.7</b></td><td><b>+54.7</b></td></tr>
                 </tbody>
               </table>
             </div>
             <figcaption>Evaluated once on policies trained after the method was frozen. Gains are return over the frozen policy; worst loss is the largest return lost on a condition that needs no correction (lower is better).</figcaption>
           </figure>
-          <p class="tags">Online Adaptation · Adaptive Control · Fault-Tolerant Control · Frozen Policies · MuJoCo</p>
+          <p class="tags">Online Adaptation, Adaptive Control, Fault-Tolerant Control, Frozen Policies, MuJoCo</p>
         </article>
 
         <article class="research-item">
@@ -304,7 +304,7 @@
             </div>
             <figcaption>Masked MuJoCo with positions observed and velocities hidden. Both arms get the same per-environment learning-rate search; on held-out seeds the lead over TransformerXL is +0.456 normalized IQM.</figcaption>
           </figure>
-          <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Belief Filtering</p>
+          <p class="tags">Reinforcement Learning, POMDPs, Recurrent Policies, Belief Filtering</p>
         </article>
 
         <article class="research-item">
@@ -346,16 +346,16 @@
               <table class="data-table">
                 <thead><tr><th>Sparse terminal reward</th><th>GRU <small>1.1k</small></th><th>LSTM <small>1.5k</small></th><th>Transformer <small>5.9k</small></th><th>Born <small>0.4k</small></th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">Parity · success</th><td>0.50</td><td>0.50</td><td>0.88</td><td><b>0.90</b></td></tr>
-                  <tr><th scope="row">Parity · steps to target</th><td>never</td><td>never</td><td>15.7M</td><td><b>2.6M</b></td></tr>
-                  <tr><th scope="row">Z<sub>3</sub> · success</th><td>0.40</td><td>0.33</td><td>0.97</td><td><b>0.99</b></td></tr>
-                  <tr><th scope="row">Z<sub>3</sub> · steps to target</th><td>never</td><td>never</td><td>2.43M</td><td><b>0.26M</b></td></tr>
+                  <tr><th scope="row">Parity, success</th><td>0.50</td><td>0.50</td><td>0.88</td><td><b>0.90</b></td></tr>
+                  <tr><th scope="row">Parity, steps to target</th><td>never</td><td>never</td><td>15.7M</td><td><b>2.6M</b></td></tr>
+                  <tr><th scope="row">Z<sub>3</sub>, success</th><td>0.40</td><td>0.33</td><td>0.97</td><td><b>0.99</b></td></tr>
+                  <tr><th scope="row">Z<sub>3</sub>, steps to target</th><td>never</td><td>never</td><td>2.43M</td><td><b>0.26M</b></td></tr>
                 </tbody>
               </table>
             </div>
             <figcaption>Reinforcement learning from a single end-of-episode reward, five seeds. Born reaches the target with about 6× (parity) and 9× (Z<sub>3</sub>) fewer environment steps than a Transformer 16× larger; gated recurrences never exceed chance.</figcaption>
           </figure>
-          <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Quantum-Inspired Networks</p>
+          <p class="tags">Reinforcement Learning, POMDPs, Recurrent Policies, Quantum-Inspired Networks</p>
         </article>
 
         <article class="research-item">
@@ -399,7 +399,7 @@
               <figcaption>Battery energy saved relative to the preceding vehicle, the part due to optimized dual-motor torque allocation alone, and average NMPC solve time for a 15 s horizon.</figcaption>
             </figure>
           </div>
-          <p class="tags">NMPC · CasADi · Eco-Driving · Dual-Motor EV · Connected and Automated Vehicles</p>
+          <p class="tags">NMPC, CasADi, Eco-Driving, Dual-Motor EV, Connected and Automated Vehicles</p>
         </article>
       </section>
 
@@ -456,18 +456,18 @@
               <img src="assets/projects/cube-4.jpg" width="800" height="600" loading="lazy" alt="The top gripper releases after a turn">
             </div>
             <p class="frames-caption">Keyframes from one solve, in order.</p>
-            <p class="tags">Manipulation · Multi-Camera Perception · Embedded Control</p>
+            <p class="tags">Manipulation, Multi-Camera Perception, Embedded Control</p>
           </article>
           <article class="card">
             <h3>CDASim development</h3>
             <p>Built components for a vehicle co-simulation platform that connects ROS, CARLA and SUMO, including inter-process communication and simulator integration.</p>
-            <p class="tags">ROS/ROS2 · CARLA · SUMO · Co-Simulation</p>
-            <a class="card-link" href="https://github.com/usdot-fhwa-stol/cdasim" target="_blank" rel="noopener">usdot-fhwa-stol/cdasim →</a>
+            <p class="tags">ROS/ROS2, CARLA, SUMO, Co-Simulation</p>
+            <a class="card-link" href="https://github.com/usdot-fhwa-stol/cdasim" target="_blank" rel="noopener">Source code on GitHub</a>
           </article>
           <article class="card">
             <h3>3D urban digital twin</h3>
             <p>Calibrated and synchronized a LiDAR and multi-camera mobile sensing platform, built preprocessing for multi-view stitching and LiDAR-camera alignment, and compared neural and geometric 3D reconstruction.</p>
-            <p class="tags">LiDAR · Calibration · Sensor Sync · 3D Reconstruction</p>
+            <p class="tags">LiDAR, Calibration, Sensor Sync, 3D Reconstruction</p>
           </article>
         </div>
       </section>
@@ -509,8 +509,8 @@
           <div class="music-piece">
             <span class="music-label">Favorite piece</span>
             <h3>The Lark</h3>
-            <p class="muted">Glinka, arr. Balakirev · performed by Evgeny Kissin</p>
-            <a class="card-link" href="https://www.youtube.com/watch?v=cxlf-ZmE8JI" target="_blank" rel="noopener">Listen on YouTube →</a>
+            <p class="muted">Glinka, arranged by Balakirev, performed by Evgeny Kissin</p>
+            <a class="card-link" href="https://www.youtube.com/watch?v=cxlf-ZmE8JI" target="_blank" rel="noopener">Listen on YouTube</a>
           </div>
           <figure class="poem" lang="zh-CN">
             <figcaption>云雀</figcaption>
@@ -524,7 +524,7 @@
   </div>
 
   <footer class="footer container">
-    <p>© <span id="year">2026</span> Zongtan Li · <a href="mailto:zongtanli2023@gmail.com">zongtanli2023@gmail.com</a></p>
+    <p>© <span id="year">2026</span> Zongtan Li. Contact: <a href="mailto:zongtanli2023@gmail.com">zongtanli2023@gmail.com</a></p>
   </footer>
 
   <script>
