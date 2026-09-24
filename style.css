@@ -238,7 +238,7 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
   background: #fff; border: 1px solid var(--border); border-radius: 10px;
 }
 /* Featured research with media */
-.research-item.featured { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.research-item.focus { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
 .kicker { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 0 0 6px !important; }
 .media { margin: 16px 0; }
 .media video, .media img {
@@ -252,7 +252,6 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 @media (max-width: 720px) {
   .media-grid { grid-template-columns: 1fr; }
 }
-.featured .stats { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 .role-2 { margin-top: -8px; }
 .figure-narrow img { max-width: 560px; margin: 0 auto; }
 .figure-narrow figcaption { text-align: center; }
@@ -308,3 +307,19 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 @media (min-width: 721px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .data-table thead th, .data-table tbody th { white-space: normal; }
 .data-table tbody th { min-width: 7em; }
+
+/* Current-focus card */
+.focus-question {
+  font-family: "Source Serif 4", Georgia, serif; font-size: 20px; line-height: 1.45;
+  border-left: 3px solid var(--accent); padding-left: 14px; margin: 4px 0 14px !important;
+}
+.focus-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0; }
+.focus-flow span:not(.arrow) {
+  padding: 6px 12px; border-radius: 8px; font-size: 14px; font-weight: 500;
+  background: var(--accent-soft); color: var(--accent);
+}
+.focus-flow .arrow { color: var(--muted); }
+.focus-questions { margin: 0 0 12px; padding-left: 20px; }
+.focus-questions li { margin-bottom: 6px; }
+.focus-next { font-size: 15px; color: var(--muted); }
+.focus-next strong { color: var(--text); }
