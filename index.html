@@ -127,14 +127,6 @@
             It keeps the demonstrated path and speeds up only where the demonstrator left slack.
           </p>
 
-          <figure class="media">
-            <video controls preload="none" playsinline poster="assets/research/retime-poster.jpg" width="1280" height="720">
-              <source src="assets/research/retime-video.mp4" type="video/mp4">
-              <a href="assets/research/retime-video.mp4">Download the video</a>
-            </video>
-            <figcaption>Video overview (2:40, narrated): the controller limit, the method, and a real-robot command replay.</figcaption>
-          </figure>
-
           <div class="stats">
             <div class="stat"><strong>120 → 93<small> s</small></strong><span>real-arm pick-and-place, 22.5% faster than the demonstration</span></div>
             <div class="stat"><strong>≤ 4<small> mm</small></strong><span>grasp-point error on hardware, vs. 8 cm for uniform re-timing</span></div>
@@ -161,19 +153,32 @@
 
         <article class="research-item">
           <div class="research-head">
-            <h3>Continual improvement of learned humanoid controllers without regression</h3>
+            <h3>Sequential recovery updates for learned humanoid controllers</h3>
             <span class="badge">Under review</span>
           </div>
           <p>
-            A sequential update mechanism that adds recovery skills to an already-competent controller at measured failures.
-            Instead of only freezing parameters, it constrains <em>where</em> each new skill may act, so previously successful trajectories are reproduced exactly.
-            I derived a finite-trajectory condition under which each update preserves the previous controller.
+            A competent learned controller already recovers from many disturbances, so improving it means learning a correction and also learning when not to apply it.
+            Freezing a skill's parameters does not settle the second part: in a controller that routes among frozen skills, a new entry rule can take over states an old skill already handled.
+            Each update therefore searches for a feedback skill at a measured failure and fits an entry rule that rejects every state on an accumulated successful trajectory.
+            The skill is admitted only if the composed controller makes the new recovery and replays every protected trajectory exactly.
           </p>
           <div class="stats">
-            <div class="stat"><strong>5 → 33<small>/48</small></strong><span>recovery on withheld perturbations (CMU + NPMP)</span></div>
-            <div class="stat"><strong>20 → 33<small>/48</small></strong><span>recovery on Unitree G1 with SONIC</span></div>
-            <div class="stat"><strong>0</strong><span>base successes lost after two updates</span></div>
+            <div class="stat"><strong>+62</strong><span>recoveries over 192 withheld perturbations, two updates on each of four streams</span></div>
+            <div class="stat"><strong>0</strong><span>base-controller successes lost</span></div>
+            <div class="stat"><strong>8</strong><span>protected trajectories broken when the constraint is removed</span></div>
           </div>
+          <figure class="media figure-plot">
+            <a href="assets/research/sr-pipeline.png" target="_blank" rel="noopener"><img src="assets/research/sr-pipeline.png" width="1604" height="664" loading="lazy" alt="Sequential update: measure a failure, acquire a feedback skill, learn when to intervene, validate and admit, with a successful-trajectory memory; runtime composition from observations to base action plus correction"></a>
+            <figcaption>(a) One sequential update, constrained by the memory of successful trajectories. (b) At runtime the skill bank selects one bounded correction from observations alone.</figcaption>
+          </figure>
+          <figure class="media figure-narrow">
+            <a href="assets/research/sr-g1.jpg" target="_blank" rel="noopener"><img src="assets/research/sr-g1.jpg" width="904" height="521" loading="lazy" alt="Unitree G1 after a push: the base SONIC controller falls in both regimes; bank 1 recovers regime 1 and bank 2 recovers both"></a>
+            <figcaption>Two sequential acquisitions on the Unitree G1 after the same push. The base SONIC controller falls; each update adds a recovery without losing the earlier one.</figcaption>
+          </figure>
+          <figure class="media figure-plot">
+            <a href="assets/research/sr-outcomes.png" target="_blank" rel="noopener"><img src="assets/research/sr-outcomes.png" width="1624" height="476" loading="lazy" alt="Per-condition outcome grid on four streams for base, bank 1, bank 2, no exclusion and minimal exclusion"></a>
+            <figcaption>Per-condition outcomes on each stream's 48 withheld perturbations. Green is a gain over the base controller; red is a lost base success, which appears only once the constraint is removed.</figcaption>
+          </figure>
           <p class="tags">Humanoid Control · Residual Feedback Skills · Gated Skill Composition · Behavior Preservation</p>
         </article>
 
