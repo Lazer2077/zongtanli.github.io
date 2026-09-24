@@ -202,3 +202,22 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
   .research-item { padding: 18px; }
   .two-col { grid-template-columns: 1fr; gap: 8px; }
 }
+
+/* Interests */
+.music {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px; box-shadow: var(--shadow);
+}
+.music-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.music-piece h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 26px; font-weight: 600; margin: 4px 0 4px; }
+.music-piece p { margin: 0 0 8px; }
+.poem {
+  margin: 0; padding-left: 24px; border-left: 3px solid var(--accent);
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+}
+.poem figcaption { font-size: 20px; font-weight: 500; letter-spacing: .3em; margin-bottom: 10px; }
+.poem p { margin: 0 0 6px; font-size: 16px; letter-spacing: .12em; color: var(--muted); }
+@media (max-width: 720px) {
+  .music { grid-template-columns: 1fr; gap: 20px; padding: 18px; }
+}
