@@ -117,7 +117,7 @@
           <p class="kicker">Current focus</p>
           <div class="research-head">
             <h3>Faster imitation by re-timing demonstrations within the controller limit</h3>
-            <span class="badge">ICRA 2027 · under review</span>
+            <span class="badge">Under review</span>
           </div>
           <p>
             A policy trained on human teleoperation inherits the operator's pace. Speeding up the demonstrations works only until success collapses at 2–3×.
@@ -162,7 +162,7 @@
         <article class="research-item">
           <div class="research-head">
             <h3>Continual improvement of learned humanoid controllers without regression</h3>
-            <span class="badge">ICRA 2027 · under review</span>
+            <span class="badge">Under review</span>
           </div>
           <p>
             A sequential update mechanism that adds recovery skills to an already-competent controller at measured failures.
@@ -179,15 +179,53 @@
 
         <article class="research-item">
           <div class="research-head">
-            <h3>Reward-free online adaptation of deployed policies</h3>
-            <span class="badge">ICLR 2027 · under review</span>
+            <h3>Efference-copy adaptation for frozen control policies</h3>
+            <span class="badge">Under review</span>
           </div>
           <p>
-            Efference-copy adaptation keeps the task policy frozen and corrects its outgoing commands online when robot dynamics change after training.
-            A lightweight two-timescale linear adapter is driven by the mismatch between a frozen forward model's prediction and the observed response. It needs no reward, fault labels, or policy gradients.
-            It outperformed perturbation-supervised RMA on nine reaching perturbations and adapted at least 40× faster than a return-driven residual.
+            Learned policies can fail after deployment when actuator ordering, direction or gain differs from training.
+            Identifying and inverting the actuator map fixes that, but applying an inverse when no such fault exists damages feedback that was working.
+            ECA keeps the policy frozen and corrects its outgoing commands under the best-supported hypothesis: a static map, a velocity-coupled disturbance, or no fault.
+            It withdraws when the identity or a delayed identity explains recent transitions better, decides only on informative data, and never amplifies the command it corrects.
           </p>
-          <p class="tags">Online Adaptation · Adaptive Control · Forward Models · Frozen Policies · MuJoCo</p>
+          <div class="stats">
+            <div class="stat"><strong>+42.7 / +65.1</strong><span>return on actuator permutation and orthogonal mix, where identification alone loses return</span></div>
+            <div class="stat"><strong>0</strong><span>residual delay loss, vs. 44.6 and 113.2 return lost by plain identification</span></div>
+          </div>
+          <figure class="media figure-plot figure-narrow">
+            <a href="assets/research/eca-flow.png" target="_blank" rel="noopener"><img src="assets/research/eca-flow.png" width="892" height="322" loading="lazy" alt="ECA data flow: policy, compensate, body, predict, estimate, reject and select"></a>
+            <figcaption>ECA data flow. The compensator corrects the command being executed now and learns from it for the next step.</figcaption>
+          </figure>
+          <figure class="media figure-plot">
+            <a href="assets/research/eca-return.png" target="_blank" rel="noopener"><img src="assets/research/eca-return.png" width="1239" height="510" loading="lazy" alt="Return against rotation angle of the input map on Reacher and Pusher; ECA stays close to the oracle inverse"></a>
+            <figcaption>Return under actuator rotations on two MuJoCo manipulators. ECA (green) stays near the oracle inverse while the frozen policy and additive corrections degrade.</figcaption>
+          </figure>
+          <p class="tags">Online Adaptation · Adaptive Control · Fault-Tolerant Control · Frozen Policies · MuJoCo</p>
+        </article>
+
+        <article class="research-item">
+          <div class="research-head">
+            <h3>Heterogeneous recurrence for partially observed control</h3>
+            <span class="badge">Under review</span>
+          </div>
+          <p>
+            Memory architectures for partially observed control are usually ranked by average return, without asking whether their inductive bias matches what the observation hides.
+            On masked MuJoCo it matters: a structured prior–innovation recurrence beats a GRU when the hidden variable is a derivative of the observation, but not when it is an integral.
+            DuoCell splits one recurrent state budget between the two constructions and lets the policy weigh both.
+          </p>
+          <div class="stats">
+            <div class="stat"><strong>+0.456</strong><span>normalized IQM over a tuned TransformerXL in the derivative regime, on held-out seeds</span></div>
+            <div class="stat"><strong>5×</strong><span>training budget, where the lead holds and widens</span></div>
+          </div>
+          <figure class="media figure-plot">
+            <a href="assets/research/duocell-step.png" target="_blank" rel="noopener"><img src="assets/research/duocell-step.png" width="1236" height="631" loading="lazy" alt="One DuoCell step: a structured predict-correct-reread path and a GRU path run in parallel on a shared embedding and are concatenated"></a>
+            <figcaption>One DuoCell step. A structured predict–correct–reread path and a GRU path share an encoder and a fixed state budget.</figcaption>
+          </figure>
+          <figure class="media figure-plot figure-narrow figure-tall">
+            <a href="assets/research/duocell-results.png" target="_blank" rel="noopener"><img src="assets/research/duocell-results.png" width="824" height="823" loading="lazy" alt="Paired normalized IQM differences with 95% bootstrap intervals; DuoCell leads every tuned baseline"></a>
+            <figcaption>Paired differences with 95% intervals. DuoCell leads every tuned baseline; ablations trace the gain to the gated reread.</figcaption>
+          </figure>
+          <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Belief Filtering</p>
         </article>
 
         <article class="research-item">
@@ -223,11 +261,13 @@
         <h3 class="pub-group">Under review</h3>
         <ol class="pubs">
           <li><span class="title">Sequential Recovery Updates for Learned Controllers under Successful-Trajectory Preservation.</span>
-            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICRA 2027.</span></li>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Under review.</span></li>
           <li><span class="title">Faster Imitation by Re-timing Demonstrations Within the Controller Limit.</span>
-            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICRA 2027.</span></li>
-          <li><span class="title">ECA: Reward-Free Online Efference-Copy Adaptation.</span>
-            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICLR 2027.</span></li>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Under review.</span></li>
+          <li><span class="title">ECA: Efference-Copy Adaptation for Frozen Control Policies.</span>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Under review.</span></li>
+          <li><span class="title">Heterogeneous Recurrence for Partially Observed Control.</span>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Under review.</span></li>
           <li><span class="title">A Group-Structured Born Recurrence for Horizon-Invariant Cyclic-Group State Tracking.</span>
             <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Under review.</span></li>
         </ol>
