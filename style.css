@@ -308,14 +308,3 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 @media (min-width: 721px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .data-table thead th, .data-table tbody th { white-space: normal; }
 .data-table tbody th { min-width: 7em; }
-
-/* Blog */
-.posts { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.post {
-  display: flex; flex-direction: column; gap: 4px; padding: 16px 20px; color: var(--text);
-  background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
-}
-.post:hover { text-decoration: none; border-color: var(--accent); }
-.post-source { font-size: 12px; font-weight: 600; letter-spacing: .04em; color: #0066ff; }
-.post-title { font-size: 17px; font-weight: 600; }
-.post-more { font-size: 14px; color: var(--accent); }
