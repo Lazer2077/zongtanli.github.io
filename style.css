@@ -199,7 +199,7 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 .footer p { border-top: 1px solid var(--border); padding-top: 20px; margin: 0; }
 
 @media (max-width: 900px) {
-  .layout { grid-template-columns: 1fr; gap: 8px; padding-top: 28px; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-top: 28px; }
   .photo { width: 120px; height: 120px; }
 }
 
@@ -275,3 +275,36 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
   .media-row .media { flex: none; width: 100%; }
 }
 .figure-lead img { max-width: 720px; margin: 0 auto; }
+
+/* Result tables */
+.table-figure { margin: 16px 0; }
+.table-wrap {
+  overflow-x: auto; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px;
+}
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.data-table th, .data-table td { padding: 8px 12px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--border); }
+.data-table thead th {
+  font-size: 12px; font-weight: 600; color: var(--muted); text-align: right;
+  background: color-mix(in srgb, var(--border) 35%, transparent);
+}
+.data-table th:first-child, .data-table thead th:first-child { text-align: left; }
+.data-table tbody th { font-weight: 500; }
+.data-table tbody tr:last-child > * { border-bottom: 0; }
+.data-table small { color: var(--muted); font-size: 12px; }
+.data-table tr.ours > * { background: var(--accent-soft); }
+.data-table tr.ours th { color: var(--accent); font-weight: 600; }
+
+/* Wide project card with keyframes */
+.card-wide { grid-column: 1 / -1; }
+.frames { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 6px 0 6px; }
+.frames img { width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid var(--border); }
+.frames-caption { font-size: 13px; color: var(--muted); }
+@media (max-width: 720px) {
+  .frames { grid-template-columns: 1fr 1fr; }
+}
+.layout > *, .media-grid > *, .cards > * { min-width: 0; }
+.media-grid .data-table th, .media-grid .data-table td { padding: 8px 9px; }
+@media (min-width: 721px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.data-table thead th, .data-table tbody th { white-space: normal; }
+.data-table tbody th { min-width: 7em; }
