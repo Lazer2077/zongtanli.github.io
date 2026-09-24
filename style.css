@@ -69,20 +69,18 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.25; margin: 0; font-weigh
 .nav-links a { color: var(--muted); }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
 
-.theme-switch {
-  display: inline-flex; padding: 2px; gap: 2px;
-  border: 1px solid var(--rule); border-radius: 999px;
-}
+.theme-switch { display: inline-flex; gap: 6px; }
 .theme-switch button {
-  display: grid; place-items: center;
-  width: 28px; height: 26px; padding: 0;
-  border: 0; border-radius: 999px; background: none; color: var(--muted);
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 30px; padding: 0 12px;
+  font: 14px/1 var(--sans); color: var(--text);
+  background: transparent; border: 1px solid var(--muted); border-radius: 6px;
   cursor: pointer;
 }
-.theme-switch button:hover { color: var(--text); }
-.theme-switch button[aria-pressed="true"] { background: var(--rule); color: var(--text); }
-.theme-switch button:focus-visible { outline: 2px solid var(--link); outline-offset: 1px; }
-.theme-switch svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.theme-switch button:hover { border-color: var(--text); }
+.theme-switch button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+.theme-switch button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.theme-switch svg { flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Layout: profile sidebar + content column */
 .layout {
