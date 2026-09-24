@@ -58,6 +58,7 @@
             <div>
               <div class="tl-head"><strong>Georgia Institute of Technology</strong><span>Aug 2026 – present</span></div>
               <div>Visiting Ph.D. Student</div>
+              <div class="muted"><a href="https://lab-idar.gatech.edu/" target="_blank" rel="noopener">LIDAR Lab</a> · PI: Prof. Ye Zhao</div>
             </div>
           </li>
           <li class="edu">
@@ -91,7 +92,7 @@
       <section id="about" class="section">
         <h2>About Me</h2>
         <p class="lede">
-          I'm a Ph.D. student in the College of Engineering at the University of Georgia, currently visiting the Georgia Institute of Technology.
+          I'm a Ph.D. student in the College of Engineering at the University of Georgia, currently visiting the <a href="https://lab-idar.gatech.edu/" target="_blank" rel="noopener">LIDAR Lab</a> at the Georgia Institute of Technology, led by Prof. Ye Zhao.
           I work on robot learning and embodied AI.
         </p>
         <p>
@@ -227,15 +228,33 @@
 
         <article class="research-item">
           <div class="research-head">
-            <h3>Sample-efficient memory for long-horizon partially observed control</h3>
+            <h3>A group-structured Born recurrence for cyclic state tracking</h3>
             <span class="badge">Under review</span>
           </div>
           <p>
-            A group-structured, quantum-inspired recurrent policy with observation-conditioned phase rotations and a Born-rule readout.
-            I proved that a two-channel recurrence exactly represents cyclic-group state regardless of episode horizon.
-            It generalizes from training horizons of ≤14 steps to 1,600-step evaluation with only 337–433 parameters, outperforming GRU, LSTM and Transformer policies.
+            Some partially observed tasks reward the agent only at the end, based on a running count modulo <em>k</em>, such as whether a hidden toggle is on.
+            Gated recurrences fail to learn even parity here, and Transformers learn a shortcut that collapses beyond the training length.
+            This quantum-inspired policy stores the count as the angle of a rotating phase and reads out actions with the Born rule, so interference among action amplitudes decodes the count.
+            I prove that a minimal two-channel version encodes the count exactly, independent of episode length.
           </p>
-          <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Complex-Valued Networks</p>
+          <div class="stats">
+            <div class="stat"><strong>14 → 1,600</strong><span>steps: trained on length 14, still succeeds at length 1,600 on every group Z<sub>2</sub>–Z<sub>5</sub></span></div>
+            <div class="stat"><strong>~400</strong><span>trainable parameters</span></div>
+            <div class="stat"><strong>9×</strong><span>faster to near-optimal return on Z<sub>3</sub> than a Transformer 16× larger</span></div>
+          </div>
+          <figure class="media figure-narrow">
+            <a href="assets/research/born-diagram.jpg" target="_blank" rel="noopener"><img src="assets/research/born-diagram.jpg" width="1200" height="800" loading="lazy" alt="A traditional recurrent policy with contractive memory and softmax readout, next to the Born-rule policy with a phase that advances per event and an interference-based Born readout"></a>
+            <figcaption>A traditional recurrent policy must learn a periodic code from reward. The Born-rule policy builds the cyclic structure in: each event advances a phase, and the Born readout decodes it.</figcaption>
+          </figure>
+          <figure class="media figure-plot">
+            <a href="assets/research/born-lengthgen.png" target="_blank" rel="noopener"><img src="assets/research/born-lengthgen.png" width="1775" height="713" loading="lazy" alt="Left: Born policies keep accuracy from length 14 to 1,600 while a Transformer collapses to chance. Right: fraction of seeds that length-generalize; only Born succeeds on every group"></a>
+            <figcaption>Length generalization. Born keeps its accuracy far beyond the training length while attention collapses (left); GRU, LSTM and Transformer each have a group they fail on, Born has none (right).</figcaption>
+          </figure>
+          <figure class="media figure-plot">
+            <a href="assets/research/born-rl.png" target="_blank" rel="noopener"><img src="assets/research/born-rl.png" width="2135" height="788" loading="lazy" alt="Success rate against environment steps on parity and Z3: Born with 337 parameters rises first, the Transformer later, GRU and LSTM stay at chance"></a>
+            <figcaption>Learning from a sparse terminal reward. Born (337 parameters) reaches near-optimal success first; GRU and LSTM stay at chance.</figcaption>
+          </figure>
+          <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Quantum-Inspired Networks</p>
         </article>
 
         <article class="research-item">
