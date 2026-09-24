@@ -233,12 +233,10 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 /* Education seals */
 .timeline .edu { display: flex; gap: 12px; align-items: flex-start; }
 .timeline .edu > div { flex: 1; min-width: 0; }
-.seal { flex: none; width: 40px; height: 40px; border-radius: 50%; background: #fff; }
-/* About */
-.focus-label { font-weight: 600; margin: 20px 0 8px; }
-.focus { margin: 0; padding-left: 20px; }
-.focus li { margin-bottom: 8px; }
-
+.seal {
+  flex: none; width: 44px; height: 44px; padding: 5px; object-fit: contain;
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+}
 /* Featured research with media */
 .research-item.featured { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
 .kicker { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 0 0 6px !important; }
