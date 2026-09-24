@@ -259,14 +259,34 @@
 
         <article class="research-item">
           <div class="research-head">
-            <h3>Energy-optimal control for connected and automated electric vehicles</h3>
+            <h3>Co-optimizing vehicle dynamics and powertrain for connected electric vehicles</h3>
             <span class="badge badge-pub">ACC 2025</span>
           </div>
           <p>
-            A CasADi-based nonlinear MPC framework coupling vehicle dynamics and powertrain energy management.
-            It cut energy consumption by 9.1% relative to a trajectory-based baseline while keeping tracking objectives.
+            Eco-driving saves the most energy when vehicle speed and powertrain operation are optimized together.
+            For a dual-motor electric vehicle, I built control-oriented models of the vehicle dynamics and the electric powertrain.
+            These turn speed planning and front/rear torque allocation into one optimal control problem that is solved in real time with CasADi-based nonlinear MPC,
+            using predicted traffic and signal timing.
+            I validated it in a VISSIM simulation of a real signalized corridor in Chattanooga, TN, calibrated with real-world data.
           </p>
-          <p class="tags">NMPC · CasADi · Connected and Automated Vehicles</p>
+          <div class="stats">
+            <div class="stat"><strong>12.8–24.5%</strong><span>lower energy use than the preceding vehicle in traffic, across four test vehicles</span></div>
+            <div class="stat"><strong>3.2–4.4%</strong><span>of that from optimized dual-motor torque allocation alone</span></div>
+            <div class="stat"><strong>&lt; 1<small> s</small></strong><span>average solve time for a 15 s prediction horizon</span></div>
+          </div>
+          <figure class="media figure-plot">
+            <a href="assets/research/ev-corridor.jpg" target="_blank" rel="noopener"><img src="assets/research/ev-corridor.jpg" width="1600" height="632" loading="lazy" alt="VISSIM network of Shallowford Road in Chattanooga, Tennessee, with eight signalized intersections"></a>
+            <figcaption>Test scenario: Shallowford Road in Chattanooga, TN, modeled in VISSIM with eight signalized intersections.</figcaption>
+          </figure>
+          <figure class="media figure-plot figure-narrow">
+            <a href="assets/research/ev-spacetime.png" target="_blank" rel="noopener"><img src="assets/research/ev-spacetime.png" width="1400" height="814" loading="lazy" alt="Space-time diagram along the corridor: the optimized trajectory glides through signals with fewer stops than the preceding vehicle"></a>
+            <figcaption>Space-time diagram with signal phases. The optimized trajectory (blue) avoids long acceleration and braking and spends less time stopped at red lights than the preceding vehicle (black).</figcaption>
+          </figure>
+          <figure class="media figure-plot figure-narrow">
+            <a href="assets/research/ev-architecture.png" target="_blank" rel="noopener"><img src="assets/research/ev-architecture.png" width="1400" height="610" loading="lazy" alt="Control architecture: the core algorithm uses traffic information, drive information and battery state to command the motor controller"></a>
+            <figcaption>Control architecture. The core algorithm combines traffic information, vehicle state and battery state to command both motors.</figcaption>
+          </figure>
+          <p class="tags">NMPC · CasADi · Eco-Driving · Dual-Motor EV · Connected and Automated Vehicles</p>
         </article>
       </section>
 
