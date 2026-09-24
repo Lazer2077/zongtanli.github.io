@@ -160,17 +160,13 @@
             <div class="stat"><strong>0</strong><span>base-controller successes lost</span></div>
             <div class="stat"><strong>8</strong><span>protected trajectories broken when the constraint is removed</span></div>
           </div>
-          <figure class="media figure-plot">
-            <a href="assets/research/sr-pipeline.png" target="_blank" rel="noopener"><img src="assets/research/sr-pipeline.png" width="1604" height="664" loading="lazy" alt="Sequential update: measure a failure, acquire a feedback skill, learn when to intervene, validate and admit, with a successful-trajectory memory; runtime composition from observations to base action plus correction"></a>
-            <figcaption>(a) One sequential update, constrained by the memory of successful trajectories. (b) At runtime the skill bank selects one bounded correction from observations alone.</figcaption>
-          </figure>
-          <figure class="media figure-narrow">
-            <a href="assets/research/sr-g1.jpg" target="_blank" rel="noopener"><img src="assets/research/sr-g1.jpg" width="904" height="521" loading="lazy" alt="Unitree G1 after a push: the base SONIC controller falls in both regimes; bank 1 recovers regime 1 and bank 2 recovers both"></a>
+          <figure class="media">
+            <a href="assets/research/sr-g1.jpg" target="_blank" rel="noopener"><img src="assets/research/sr-g1.jpg" width="1459" height="841" loading="lazy" alt="Unitree G1 after a push: the base SONIC controller falls in both regimes; bank 1 recovers regime 1 and bank 2 recovers both"></a>
             <figcaption>Two sequential acquisitions on the Unitree G1 after the same push. The base SONIC controller falls; each update adds a recovery without losing the earlier one.</figcaption>
           </figure>
           <figure class="media figure-plot">
-            <a href="assets/research/sr-outcomes.png" target="_blank" rel="noopener"><img src="assets/research/sr-outcomes.png" width="1624" height="476" loading="lazy" alt="Per-condition outcome grid on four streams for base, bank 1, bank 2, no exclusion and minimal exclusion"></a>
-            <figcaption>Per-condition outcomes on each stream's 48 withheld perturbations. Green is a gain over the base controller; red is a lost base success, which appears only once the constraint is removed.</figcaption>
+            <a href="assets/research/sr-pipeline.png" target="_blank" rel="noopener"><img src="assets/research/sr-pipeline.png" width="1604" height="664" loading="lazy" alt="Sequential update: measure a failure, acquire a feedback skill, learn when to intervene, validate and admit, with a successful-trajectory memory; runtime composition from observations to base action plus correction"></a>
+            <figcaption>(a) One sequential update, constrained by the memory of successful trajectories. (b) At runtime the skill bank selects one bounded correction from observations alone.</figcaption>
           </figure>
           <p class="tags">Humanoid Control · Residual Feedback Skills · Gated Skill Composition · Behavior Preservation</p>
         </article>
@@ -190,14 +186,16 @@
             <div class="stat"><strong>+42.7 / +65.1</strong><span>return on actuator permutation and orthogonal mix, where identification alone loses return</span></div>
             <div class="stat"><strong>0</strong><span>residual delay loss, vs. 44.6 and 113.2 return lost by plain identification</span></div>
           </div>
-          <figure class="media figure-plot figure-narrow">
-            <a href="assets/research/eca-flow.png" target="_blank" rel="noopener"><img src="assets/research/eca-flow.png" width="892" height="322" loading="lazy" alt="ECA data flow: policy, compensate, body, predict, estimate, reject and select"></a>
-            <figcaption>ECA data flow. The compensator corrects the command being executed now and learns from it for the next step.</figcaption>
-          </figure>
-          <figure class="media figure-plot">
-            <a href="assets/research/eca-return.png" target="_blank" rel="noopener"><img src="assets/research/eca-return.png" width="1239" height="510" loading="lazy" alt="Return against rotation angle of the input map on Reacher and Pusher; ECA stays close to the oracle inverse"></a>
-            <figcaption>Return under actuator rotations on two MuJoCo manipulators. ECA (green) stays near the oracle inverse while the frozen policy and additive corrections degrade.</figcaption>
-          </figure>
+          <div class="media-row">
+            <figure class="media figure-plot" style="--ar: 2.770">
+              <a href="assets/research/eca-flow.png" target="_blank" rel="noopener"><img src="assets/research/eca-flow.png" width="892" height="322" loading="lazy" alt="ECA data flow: policy, compensate, body, predict, estimate, reject and select"></a>
+              <figcaption>ECA data flow. The compensator corrects the command being executed now and learns from it for the next step.</figcaption>
+            </figure>
+            <figure class="media figure-plot" style="--ar: 2.429">
+              <a href="assets/research/eca-return.png" target="_blank" rel="noopener"><img src="assets/research/eca-return.png" width="1239" height="510" loading="lazy" alt="Return against rotation angle of the input map on Reacher and Pusher; ECA stays close to the oracle inverse"></a>
+              <figcaption>Return under actuator rotations on two MuJoCo manipulators. ECA (green) stays near the oracle inverse while the frozen policy and additive corrections degrade.</figcaption>
+            </figure>
+          </div>
           <p class="tags">Online Adaptation · Adaptive Control · Fault-Tolerant Control · Frozen Policies · MuJoCo</p>
         </article>
 
@@ -215,14 +213,16 @@
             <div class="stat"><strong>+0.456</strong><span>normalized IQM over a tuned TransformerXL in the derivative regime, on held-out seeds</span></div>
             <div class="stat"><strong>5×</strong><span>training budget, where the lead holds and widens</span></div>
           </div>
-          <figure class="media figure-plot">
-            <a href="assets/research/duocell-step.png" target="_blank" rel="noopener"><img src="assets/research/duocell-step.png" width="1236" height="631" loading="lazy" alt="One DuoCell step: a structured predict-correct-reread path and a GRU path run in parallel on a shared embedding and are concatenated"></a>
-            <figcaption>One DuoCell step. A structured predict–correct–reread path and a GRU path share an encoder and a fixed state budget.</figcaption>
-          </figure>
-          <figure class="media figure-plot figure-narrow figure-tall">
-            <a href="assets/research/duocell-results.png" target="_blank" rel="noopener"><img src="assets/research/duocell-results.png" width="824" height="823" loading="lazy" alt="Paired normalized IQM differences with 95% bootstrap intervals; DuoCell leads every tuned baseline"></a>
-            <figcaption>Paired differences with 95% intervals. DuoCell leads every tuned baseline; ablations trace the gain to the gated reread.</figcaption>
-          </figure>
+          <div class="media-row">
+            <figure class="media figure-plot" style="--ar: 1.959">
+              <a href="assets/research/duocell-step.png" target="_blank" rel="noopener"><img src="assets/research/duocell-step.png" width="1236" height="631" loading="lazy" alt="One DuoCell step: a structured predict-correct-reread path and a GRU path run in parallel on a shared embedding and are concatenated"></a>
+              <figcaption>One DuoCell step. A structured predict–correct–reread path and a GRU path share an encoder and a fixed state budget.</figcaption>
+            </figure>
+            <figure class="media figure-plot" style="--ar: 1.001">
+              <a href="assets/research/duocell-results.png" target="_blank" rel="noopener"><img src="assets/research/duocell-results.png" width="824" height="823" loading="lazy" alt="Paired normalized IQM differences with 95% bootstrap intervals; DuoCell leads every tuned baseline"></a>
+              <figcaption>Paired differences with 95% intervals. DuoCell leads every tuned baseline; ablations trace the gain to the gated reread.</figcaption>
+            </figure>
+          </div>
           <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Belief Filtering</p>
         </article>
 
@@ -242,18 +242,20 @@
             <div class="stat"><strong>~400</strong><span>trainable parameters</span></div>
             <div class="stat"><strong>9×</strong><span>faster to near-optimal return on Z<sub>3</sub> than a Transformer 16× larger</span></div>
           </div>
-          <figure class="media figure-narrow">
+          <figure class="media figure-plot figure-lead">
             <a href="assets/research/born-diagram.jpg" target="_blank" rel="noopener"><img src="assets/research/born-diagram.jpg" width="1200" height="800" loading="lazy" alt="A traditional recurrent policy with contractive memory and softmax readout, next to the Born-rule policy with a phase that advances per event and an interference-based Born readout"></a>
             <figcaption>A traditional recurrent policy must learn a periodic code from reward. The Born-rule policy builds the cyclic structure in: each event advances a phase, and the Born readout decodes it.</figcaption>
           </figure>
-          <figure class="media figure-plot">
-            <a href="assets/research/born-lengthgen.png" target="_blank" rel="noopener"><img src="assets/research/born-lengthgen.png" width="1775" height="713" loading="lazy" alt="Left: Born policies keep accuracy from length 14 to 1,600 while a Transformer collapses to chance. Right: fraction of seeds that length-generalize; only Born succeeds on every group"></a>
-            <figcaption>Length generalization. Born keeps its accuracy far beyond the training length while attention collapses (left); GRU, LSTM and Transformer each have a group they fail on, Born has none (right).</figcaption>
-          </figure>
-          <figure class="media figure-plot">
-            <a href="assets/research/born-rl.png" target="_blank" rel="noopener"><img src="assets/research/born-rl.png" width="2135" height="788" loading="lazy" alt="Success rate against environment steps on parity and Z3: Born with 337 parameters rises first, the Transformer later, GRU and LSTM stay at chance"></a>
-            <figcaption>Learning from a sparse terminal reward. Born (337 parameters) reaches near-optimal success first; GRU and LSTM stay at chance.</figcaption>
-          </figure>
+          <div class="media-row">
+            <figure class="media figure-plot" style="--ar: 2.489">
+              <a href="assets/research/born-lengthgen.png" target="_blank" rel="noopener"><img src="assets/research/born-lengthgen.png" width="1775" height="713" loading="lazy" alt="Left: Born policies keep accuracy from length 14 to 1,600 while a Transformer collapses to chance. Right: fraction of seeds that length-generalize; only Born succeeds on every group"></a>
+              <figcaption>Length generalization. Born keeps its accuracy far beyond the training length while attention collapses (left); GRU, LSTM and Transformer each have a group they fail on, Born has none (right).</figcaption>
+            </figure>
+            <figure class="media figure-plot" style="--ar: 2.709">
+              <a href="assets/research/born-rl.png" target="_blank" rel="noopener"><img src="assets/research/born-rl.png" width="2135" height="788" loading="lazy" alt="Success rate against environment steps on parity and Z3: Born with 337 parameters rises first, the Transformer later, GRU and LSTM stay at chance"></a>
+              <figcaption>Learning from a sparse terminal reward. Born (337 parameters) reaches near-optimal success first; GRU and LSTM stay at chance.</figcaption>
+            </figure>
+          </div>
           <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Quantum-Inspired Networks</p>
         </article>
 
@@ -274,18 +276,20 @@
             <div class="stat"><strong>3.2–4.4%</strong><span>of that from optimized dual-motor torque allocation alone</span></div>
             <div class="stat"><strong>&lt; 1<small> s</small></strong><span>average solve time for a 15 s prediction horizon</span></div>
           </div>
-          <figure class="media figure-plot">
+          <figure class="media">
             <a href="assets/research/ev-corridor.jpg" target="_blank" rel="noopener"><img src="assets/research/ev-corridor.jpg" width="1600" height="632" loading="lazy" alt="VISSIM network of Shallowford Road in Chattanooga, Tennessee, with eight signalized intersections"></a>
             <figcaption>Test scenario: Shallowford Road in Chattanooga, TN, modeled in VISSIM with eight signalized intersections.</figcaption>
           </figure>
-          <figure class="media figure-plot figure-narrow">
-            <a href="assets/research/ev-spacetime.png" target="_blank" rel="noopener"><img src="assets/research/ev-spacetime.png" width="1400" height="814" loading="lazy" alt="Space-time diagram along the corridor: the optimized trajectory glides through signals with fewer stops than the preceding vehicle"></a>
-            <figcaption>Space-time diagram with signal phases. The optimized trajectory (blue) avoids long acceleration and braking and spends less time stopped at red lights than the preceding vehicle (black).</figcaption>
-          </figure>
-          <figure class="media figure-plot figure-narrow">
-            <a href="assets/research/ev-architecture.png" target="_blank" rel="noopener"><img src="assets/research/ev-architecture.png" width="1400" height="610" loading="lazy" alt="Control architecture: the core algorithm uses traffic information, drive information and battery state to command the motor controller"></a>
-            <figcaption>Control architecture. The core algorithm combines traffic information, vehicle state and battery state to command both motors.</figcaption>
-          </figure>
+          <div class="media-row">
+            <figure class="media figure-plot" style="--ar: 1.720">
+              <a href="assets/research/ev-spacetime.png" target="_blank" rel="noopener"><img src="assets/research/ev-spacetime.png" width="1400" height="814" loading="lazy" alt="Space-time diagram along the corridor: the optimized trajectory glides through signals with fewer stops than the preceding vehicle"></a>
+              <figcaption>Space-time diagram with signal phases. The optimized trajectory (blue) avoids long acceleration and braking and spends less time stopped at red lights than the preceding vehicle (black).</figcaption>
+            </figure>
+            <figure class="media figure-plot" style="--ar: 2.295">
+              <a href="assets/research/ev-architecture.png" target="_blank" rel="noopener"><img src="assets/research/ev-architecture.png" width="1400" height="610" loading="lazy" alt="Control architecture: the core algorithm uses traffic information, drive information and battery state to command the motor controller"></a>
+              <figcaption>Control architecture. The core algorithm combines traffic information, vehicle state and battery state to command both motors.</figcaption>
+            </figure>
+          </div>
           <p class="tags">NMPC · CasADi · Eco-Driving · Dual-Motor EV · Connected and Automated Vehicles</p>
         </article>
       </section>

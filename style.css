@@ -56,7 +56,7 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
 
 h1, h2, h3 { line-height: 1.25; margin: 0; }
 h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
@@ -92,7 +92,7 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 
 /* Layout: profile sidebar + content column */
 .layout {
-  display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 56px;
+  display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px;
   align-items: start; padding-top: 40px;
 }
 .sidebar { font-size: 15px; }
@@ -265,3 +265,13 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
   background: var(--surface); border: 1px solid var(--border);
 }
 .hobby-emoji { font-size: 18px; line-height: 1; }
+
+/* Justified figure row: each figure's width follows its aspect ratio,
+   so paired figures come out the same height with no letterboxing. */
+.media-row { display: flex; gap: 16px; align-items: flex-start; margin: 16px 0; }
+.media-row .media { flex: var(--ar) 1 0; min-width: 0; margin: 0; }
+@media (max-width: 720px) {
+  .media-row { flex-direction: column; }
+  .media-row .media { flex: none; width: 100%; }
+}
+.figure-lead img { max-width: 720px; margin: 0 auto; }
