@@ -8,6 +8,7 @@
   <meta property="og:title" content="Zongtan Li — Robot Learning &amp; Embodied AI">
   <meta property="og:description" content="Ph.D. researcher at the University of Georgia working on learned controllers that keep improving after deployment without breaking what already works.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lazer2077.github.io/zongtanli.github.io/assets/photo.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e79'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='white'%3EZL%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,7 @@
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
-        <a href="#background">Background</a>
+        <a href="#honors">Honors</a>
         <a href="#interests">Interests</a>
       </div>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
@@ -32,13 +33,49 @@
     </nav>
   </header>
 
-  <main id="top">
-    <!-- Intro -->
-    <section class="hero container">
-      <div class="avatar" aria-hidden="true">ZL</div>
-      <div class="hero-text">
-        <h1>Zongtan Li</h1>
-        <p class="role">Ph.D. Student · College of Engineering, University of Georgia</p>
+  <div class="layout container" id="top">
+    <aside class="sidebar">
+      <img class="photo" src="assets/photo.jpg" width="200" height="200" alt="Portrait of Zongtan Li">
+      <h1>Zongtan Li</h1>
+      <p class="role">Ph.D. Student<br>College of Engineering<br>University of Georgia</p>
+      <ul class="side-links">
+        <li><a href="mailto:zongtanli2023@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a></li>
+        <li><a href="https://www.linkedin.com/in/zongtan-li-92120a28a" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a></li>
+        <li><a href="https://github.com/Lazer2077" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.5-4-2-6-2.5m12 5v-3.5a3 3 0 0 0-.9-2.3c3-.3 6-1.5 6-6.5a5 5 0 0 0-1.4-3.5 4.7 4.7 0 0 0-.1-3.5s-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.5 0C6.1 1.9 5 2.2 5 2.2a4.7 4.7 0 0 0-.1 3.5A5 5 0 0 0 3.5 9.2c0 5 3 6.2 6 6.5a3 3 0 0 0-.9 2.3V22"/></svg>GitHub</a></li>
+        <li class="muted-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Athens, GA</li>
+      </ul>
+
+      <div class="side-block">
+        <h2 class="sub">Education</h2>
+        <ul class="timeline">
+          <li>
+            <div class="tl-head"><strong>University of Georgia</strong><span>2023 – present</span></div>
+            <div>Ph.D. Student, College of Engineering</div>
+            <div class="muted">Physical AI, Robot Learning, Reinforcement Learning, Motion Control, Control Theory, Computer Vision</div>
+          </li>
+          <li>
+            <div class="tl-head"><strong>Fuzhou University</strong><span>2019 – 2023</span></div>
+            <div>B.Eng. in Automation (Robotics and Intelligent Devices)</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="side-block">
+        <h2 class="sub">Research interests</h2>
+        <div class="interests">
+          <span>Robot Learning</span><span>Embodied AI</span><span>Humanoid Whole-Body Control</span>
+          <span>Imitation Learning</span><span>POMDPs</span><span>Model Predictive Control</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="about" class="section">
+        <h2>About</h2>
         <p class="lede">
           I work on robot learning and embodied AI, with one question running through it:
           how can a learned controller keep improving after deployment without breaking what already works?
@@ -48,221 +85,193 @@
           reward-free online adaptation to changing dynamics, and recurrent policies for partially observed control.
           It draws on optimal control (NMPC), simulation, and hands-on robotic systems.
         </p>
-        <ul class="links">
-          <li><a href="mailto:zongtanli2023@gmail.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a></li>
-          <li><a href="https://www.linkedin.com/in/zongtan-li-92120a28a" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a></li>
-          <li><a href="https://github.com/Lazer2077" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.5-4-2-6-2.5m12 5v-3.5a3 3 0 0 0-.9-2.3c3-.3 6-1.5 6-6.5a5 5 0 0 0-1.4-3.5 4.7 4.7 0 0 0-.1-3.5s-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.5 0C6.1 1.9 5 2.2 5 2.2a4.7 4.7 0 0 0-.1 3.5A5 5 0 0 0 3.5 9.2c0 5 3 6.2 6 6.5a3 3 0 0 0-.9 2.3V22"/></svg>GitHub</a></li>
-          <li class="muted-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Athens, GA</li>
-        </ul>
-      </div>
-    </section>
+      </section>
 
-    <section class="container interests">
-      <span>Robot Learning</span><span>Embodied AI</span><span>Humanoid Whole-Body Control</span>
-      <span>Continual Skill Acquisition</span><span>Online Adaptation</span><span>Imitation Learning</span>
-      <span>POMDPs</span><span>Model Predictive Control</span>
-    </section>
+      <!-- Research -->
+      <section id="research" class="section">
+        <h2>Research</h2>
 
-    <!-- Research -->
-    <section id="research" class="container section">
-      <h2>Research</h2>
-
-      <article class="research-item">
-        <div class="research-head">
-          <h3>Continual improvement of learned humanoid controllers without regression</h3>
-          <span class="badge">ICRA 2027 · under review</span>
-        </div>
-        <p>
-          A sequential update mechanism that adds recovery skills to an already-competent controller at measured failures.
-          Instead of only freezing parameters, it constrains <em>where</em> each new skill may act, so previously successful trajectories are reproduced exactly.
-          I derived a finite-trajectory condition under which each update preserves the previous controller.
-        </p>
-        <div class="stats">
-          <div class="stat"><strong>5 → 33<small>/48</small></strong><span>recovery on withheld perturbations (CMU + NPMP)</span></div>
-          <div class="stat"><strong>20 → 33<small>/48</small></strong><span>recovery on Unitree G1 with SONIC</span></div>
-          <div class="stat"><strong>0</strong><span>base successes lost after two updates</span></div>
-        </div>
-        <p class="tags">Humanoid Control · Residual Feedback Skills · Gated Skill Composition · Behavior Preservation</p>
-      </article>
-
-      <article class="research-item">
-        <div class="research-head">
-          <h3>Imitation-learned robot policies faster than the human demonstrations</h3>
-          <span class="badge">ICRA 2027 · under review</span>
-        </div>
-        <p>
-          When re-timed demonstrations are sped up 2–3×, success collapses because merged commands exceed the displacement the low-level controller can realize per period.
-          A one-parameter, linear-time re-timing rule merges commands only while they remain realizable. It keeps the demonstrated geometry, speeds up where the demonstrator left slack,
-          and lands within 0.1% of the exact shortest-path optimum.
-        </p>
-        <div class="stats">
-          <div class="stat"><strong>96%<small> vs 60%</small></strong><span>success on Robomimic Can, vs. uniform 2× speed-up</span></div>
-          <div class="stat"><strong>71%<small> @ 2.3×</small></strong><span>of 429 clips on a G1 whole-body tracker (uniform: 51% @ 2×)</span></div>
-        </div>
-        <p class="tags">Imitation Learning · Flow-Matching Policies · Robomimic / Robosuite · Humanoid Motion Tracking</p>
-      </article>
-
-      <article class="research-item">
-        <div class="research-head">
-          <h3>Reward-free online adaptation of deployed policies</h3>
-          <span class="badge">ICLR 2027 · under review</span>
-        </div>
-        <p>
-          Efference-copy adaptation keeps the task policy frozen and corrects its outgoing commands online when robot dynamics change after training.
-          A lightweight two-timescale linear adapter is driven by the mismatch between a frozen forward model's prediction and the observed response. It needs no reward, fault labels, or policy gradients.
-          It outperformed perturbation-supervised RMA on nine reaching perturbations and adapted at least 40× faster than a return-driven residual.
-        </p>
-        <p class="tags">Online Adaptation · Adaptive Control · Forward Models · Frozen Policies · MuJoCo</p>
-      </article>
-
-      <article class="research-item">
-        <div class="research-head">
-          <h3>Sample-efficient memory for long-horizon partially observed control</h3>
-          <span class="badge">AAAI 2027 · under review</span>
-        </div>
-        <p>
-          A group-structured, quantum-inspired recurrent policy with observation-conditioned phase rotations and a Born-rule readout.
-          I proved that a two-channel recurrence exactly represents cyclic-group state regardless of episode horizon.
-          It generalizes from training horizons of ≤14 steps to 1,600-step evaluation with only 337–433 parameters, outperforming GRU, LSTM and Transformer policies.
-        </p>
-        <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Complex-Valued Networks</p>
-      </article>
-
-      <article class="research-item">
-        <div class="research-head">
-          <h3>Energy-optimal control for connected and automated electric vehicles</h3>
-          <span class="badge badge-pub">ACC 2025</span>
-        </div>
-        <p>
-          A CasADi-based nonlinear MPC framework coupling vehicle dynamics and powertrain energy management.
-          It cut energy consumption by 9.1% relative to a trajectory-based baseline while keeping tracking objectives.
-        </p>
-        <p class="tags">NMPC · CasADi · Connected and Automated Vehicles</p>
-      </article>
-    </section>
-
-    <!-- Publications -->
-    <section id="publications" class="container section">
-      <h2>Publications</h2>
-
-      <h3 class="pub-group">Under review</h3>
-      <ol class="pubs">
-        <li><span class="title">Sequential Recovery Updates for Learned Controllers under Successful-Trajectory Preservation.</span>
-          <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICRA 2027.</span></li>
-        <li><span class="title">Faster Imitation by Re-timing Demonstrations Within the Controller Limit.</span>
-          <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICRA 2027.</span></li>
-        <li><span class="title">ECA: Reward-Free Online Efference-Copy Adaptation.</span>
-          <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICLR 2027.</span></li>
-        <li><span class="title">A Group-Structured Born Recurrence for Horizon-Invariant Cyclic-Group State Tracking.</span>
-          <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to AAAI 2027.</span></li>
-      </ol>
-
-      <h3 class="pub-group">Papers and preprints</h3>
-      <ol class="pubs">
-        <li><span class="title"><a href="https://arxiv.org/abs/2607.21867" target="_blank" rel="noopener">When Is a Learned Command Adapter Worth It? Closed-Loop Identification and Counterfactual Auditing of Frozen Locomotion Policies.</a></span>
-          <span class="authors"><b>Z. Li</b>.</span> <span class="venue">arXiv:2607.21867, 2026.</span></li>
-        <li><span class="title">3D Digital Twins in Urban Transportation: A Comprehensive Survey on Definitions, Development, Modeling, and Applications.</span>
-          <span class="authors">H. Chen, <b>Z. Li</b>, et al.</span> <span class="venue">TRB Annual Meeting, 2026.</span></li>
-        <li><span class="title">Co-optimization of Vehicle Dynamics and Powertrain Management for Connected and Automated Electric Vehicles.</span>
-          <span class="authors"><b>Z. Li</b>, Y. Shao.</span> <span class="venue">American Control Conference (ACC), 2025.</span></li>
-        <li><span class="title">A Traffic-Adaptive Physics-Informed Learning Control for Energy Savings of Connected and Automated Vehicles.</span>
-          <span class="authors">Y. Shao, <b>Z. Li</b>.</span> <span class="venue">American Control Conference (ACC), 2025.</span></li>
-        <li><span class="title">MD-Mamba: Feature Extractor on 3D Representation with Multi-View Depth.</span>
-          <span class="authors">Q. Li, <b>Z. Li</b>, L. Tian, et al.</span> <span class="venue">Image and Vision Computing, 154:105396, 2025.</span></li>
-        <li><span class="title"><a href="https://arxiv.org/abs/2508.16849" target="_blank" rel="noopener">RF-PGS: Fully-Structured Spatial Wireless Channel Representation with Planar Gaussian Splatting.</a></span>
-          <span class="authors">L. Zhang, <b>Z. Li</b>, H. Sun.</span> <span class="venue">arXiv:2508.16849, 2025.</span></li>
-        <li><span class="title">An Efficient Multi-Object Tracking Guided by Spatial Clustering on Vision Sensors.</span>
-          <span class="authors">Y. Chen, <b>Z. Li</b>, L. Wu, et al.</span> <span class="venue">IEEE Sensors Journal, 2024.</span></li>
-        <li><span class="title">SCTracker: Multi-Object Tracking with Shape and Confidence Constraints.</span>
-          <span class="authors">H. Mao, Y. Chen, <b>Z. Li</b>, P. Chen, F. Chen.</span> <span class="venue">IEEE Sensors Journal, 2023.</span></li>
-      </ol>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="container section">
-      <h2>Projects</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>CDASim development</h3>
-          <p>Built components for a vehicle co-simulation platform that connects ROS, CARLA and SUMO, including inter-process communication and simulator integration.</p>
-          <p class="tags">ROS/ROS2 · CARLA · SUMO · Co-Simulation</p>
-          <a class="card-link" href="https://github.com/usdot-fhwa-stol/cdasim" target="_blank" rel="noopener">usdot-fhwa-stol/cdasim →</a>
+        <article class="research-item">
+          <div class="research-head">
+            <h3>Continual improvement of learned humanoid controllers without regression</h3>
+            <span class="badge">ICRA 2027 · under review</span>
+          </div>
+          <p>
+            A sequential update mechanism that adds recovery skills to an already-competent controller at measured failures.
+            Instead of only freezing parameters, it constrains <em>where</em> each new skill may act, so previously successful trajectories are reproduced exactly.
+            I derived a finite-trajectory condition under which each update preserves the previous controller.
+          </p>
+          <div class="stats">
+            <div class="stat"><strong>5 → 33<small>/48</small></strong><span>recovery on withheld perturbations (CMU + NPMP)</span></div>
+            <div class="stat"><strong>20 → 33<small>/48</small></strong><span>recovery on Unitree G1 with SONIC</span></div>
+            <div class="stat"><strong>0</strong><span>base successes lost after two updates</span></div>
+          </div>
+          <p class="tags">Humanoid Control · Residual Feedback Skills · Gated Skill Composition · Behavior Preservation</p>
         </article>
-        <article class="card">
-          <h3>Two-arm Rubik's Cube solver</h3>
-          <p>A full-stack two-arm robot that scans, solves and physically turns a Rubik's Cube in under 40 seconds, using dual-camera perception, real-time solving, serial communication and calibrated stepper/servo trajectories.</p>
-          <p class="tags">Manipulation · Multi-Camera Perception · Embedded Control</p>
-        </article>
-        <article class="card">
-          <h3>3D urban digital twin</h3>
-          <p>Calibrated and synchronized a LiDAR and multi-camera mobile sensing platform, built preprocessing for multi-view stitching and LiDAR-camera alignment, and compared neural and geometric 3D reconstruction.</p>
-          <p class="tags">LiDAR · Calibration · Sensor Sync · 3D Reconstruction</p>
-        </article>
-      </div>
-    </section>
 
-    <!-- Background -->
-    <section id="background" class="container section">
-      <h2>Background</h2>
-      <div class="two-col">
-        <div>
-          <h3 class="sub">Education</h3>
-          <ul class="timeline">
-            <li>
-              <div class="tl-head"><strong>University of Georgia</strong><span>2023 – present</span></div>
-              <div>Ph.D. Student, College of Engineering</div>
-              <div class="muted">Physical AI, Robot Learning, Reinforcement Learning, Motion Control, Control Theory, Computer Vision</div>
-            </li>
-            <li>
-              <div class="tl-head"><strong>Fuzhou University</strong><span>2019 – 2023</span></div>
-              <div>B.Eng. in Automation (Robotics and Intelligent Devices)</div>
-            </li>
-          </ul>
+        <article class="research-item">
+          <div class="research-head">
+            <h3>Imitation-learned robot policies faster than the human demonstrations</h3>
+            <span class="badge">ICRA 2027 · under review</span>
+          </div>
+          <p>
+            When re-timed demonstrations are sped up 2–3×, success collapses because merged commands exceed the displacement the low-level controller can realize per period.
+            A one-parameter, linear-time re-timing rule merges commands only while they remain realizable. It keeps the demonstrated geometry, speeds up where the demonstrator left slack,
+            and lands within 0.1% of the exact shortest-path optimum.
+          </p>
+          <div class="stats">
+            <div class="stat"><strong>96%<small> vs 60%</small></strong><span>success on Robomimic Can, vs. uniform 2× speed-up</span></div>
+            <div class="stat"><strong>71%<small> @ 2.3×</small></strong><span>of 429 clips on a G1 whole-body tracker (uniform: 51% @ 2×)</span></div>
+          </div>
+          <p class="tags">Imitation Learning · Flow-Matching Policies · Robomimic / Robosuite · Humanoid Motion Tracking</p>
+        </article>
 
-          <h3 class="sub">Honors</h3>
-          <ul class="honors">
-            <li><span>2022</span>International Second Prize, RoboMaster University Sim2Real Challenge</li>
-            <li><span>2021</span>National Third Prize, China Robot Competition</li>
-            <li><span>2020</span>National Third Prize, China Robot Competition</li>
-          </ul>
+        <article class="research-item">
+          <div class="research-head">
+            <h3>Reward-free online adaptation of deployed policies</h3>
+            <span class="badge">ICLR 2027 · under review</span>
+          </div>
+          <p>
+            Efference-copy adaptation keeps the task policy frozen and corrects its outgoing commands online when robot dynamics change after training.
+            A lightweight two-timescale linear adapter is driven by the mismatch between a frozen forward model's prediction and the observed response. It needs no reward, fault labels, or policy gradients.
+            It outperformed perturbation-supervised RMA on nine reaching perturbations and adapted at least 40× faster than a return-driven residual.
+          </p>
+          <p class="tags">Online Adaptation · Adaptive Control · Forward Models · Frozen Policies · MuJoCo</p>
+        </article>
+
+        <article class="research-item">
+          <div class="research-head">
+            <h3>Sample-efficient memory for long-horizon partially observed control</h3>
+            <span class="badge">AAAI 2027 · under review</span>
+          </div>
+          <p>
+            A group-structured, quantum-inspired recurrent policy with observation-conditioned phase rotations and a Born-rule readout.
+            I proved that a two-channel recurrence exactly represents cyclic-group state regardless of episode horizon.
+            It generalizes from training horizons of ≤14 steps to 1,600-step evaluation with only 337–433 parameters, outperforming GRU, LSTM and Transformer policies.
+          </p>
+          <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Complex-Valued Networks</p>
+        </article>
+
+        <article class="research-item">
+          <div class="research-head">
+            <h3>Energy-optimal control for connected and automated electric vehicles</h3>
+            <span class="badge badge-pub">ACC 2025</span>
+          </div>
+          <p>
+            A CasADi-based nonlinear MPC framework coupling vehicle dynamics and powertrain energy management.
+            It cut energy consumption by 9.1% relative to a trajectory-based baseline while keeping tracking objectives.
+          </p>
+          <p class="tags">NMPC · CasADi · Connected and Automated Vehicles</p>
+        </article>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications" class="section">
+        <h2>Publications</h2>
+
+        <h3 class="pub-group">Under review</h3>
+        <ol class="pubs">
+          <li><span class="title">Sequential Recovery Updates for Learned Controllers under Successful-Trajectory Preservation.</span>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICRA 2027.</span></li>
+          <li><span class="title">Faster Imitation by Re-timing Demonstrations Within the Controller Limit.</span>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICRA 2027.</span></li>
+          <li><span class="title">ECA: Reward-Free Online Efference-Copy Adaptation.</span>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to ICLR 2027.</span></li>
+          <li><span class="title">A Group-Structured Born Recurrence for Horizon-Invariant Cyclic-Group State Tracking.</span>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">Submitted to AAAI 2027.</span></li>
+        </ol>
+
+        <h3 class="pub-group">Papers and preprints</h3>
+        <ol class="pubs">
+          <li><span class="title"><a href="https://arxiv.org/abs/2607.21867" target="_blank" rel="noopener">When Is a Learned Command Adapter Worth It? Closed-Loop Identification and Counterfactual Auditing of Frozen Locomotion Policies.</a></span>
+            <span class="authors"><b>Z. Li</b>.</span> <span class="venue">arXiv:2607.21867, 2026.</span></li>
+          <li><span class="title">3D Digital Twins in Urban Transportation: A Comprehensive Survey on Definitions, Development, Modeling, and Applications.</span>
+            <span class="authors">H. Chen, <b>Z. Li</b>, et al.</span> <span class="venue">TRB Annual Meeting, 2026.</span></li>
+          <li><span class="title">Co-optimization of Vehicle Dynamics and Powertrain Management for Connected and Automated Electric Vehicles.</span>
+            <span class="authors"><b>Z. Li</b>, Y. Shao.</span> <span class="venue">American Control Conference (ACC), 2025.</span></li>
+          <li><span class="title">A Traffic-Adaptive Physics-Informed Learning Control for Energy Savings of Connected and Automated Vehicles.</span>
+            <span class="authors">Y. Shao, <b>Z. Li</b>.</span> <span class="venue">American Control Conference (ACC), 2025.</span></li>
+          <li><span class="title">MD-Mamba: Feature Extractor on 3D Representation with Multi-View Depth.</span>
+            <span class="authors">Q. Li, <b>Z. Li</b>, L. Tian, et al.</span> <span class="venue">Image and Vision Computing, 154:105396, 2025.</span></li>
+          <li><span class="title"><a href="https://arxiv.org/abs/2508.16849" target="_blank" rel="noopener">RF-PGS: Fully-Structured Spatial Wireless Channel Representation with Planar Gaussian Splatting.</a></span>
+            <span class="authors">L. Zhang, <b>Z. Li</b>, H. Sun.</span> <span class="venue">arXiv:2508.16849, 2025.</span></li>
+          <li><span class="title">An Efficient Multi-Object Tracking Guided by Spatial Clustering on Vision Sensors.</span>
+            <span class="authors">Y. Chen, <b>Z. Li</b>, L. Wu, et al.</span> <span class="venue">IEEE Sensors Journal, 2024.</span></li>
+          <li><span class="title">SCTracker: Multi-Object Tracking with Shape and Confidence Constraints.</span>
+            <span class="authors">H. Mao, Y. Chen, <b>Z. Li</b>, P. Chen, F. Chen.</span> <span class="venue">IEEE Sensors Journal, 2023.</span></li>
+        </ol>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>CDASim development</h3>
+            <p>Built components for a vehicle co-simulation platform that connects ROS, CARLA and SUMO, including inter-process communication and simulator integration.</p>
+            <p class="tags">ROS/ROS2 · CARLA · SUMO · Co-Simulation</p>
+            <a class="card-link" href="https://github.com/usdot-fhwa-stol/cdasim" target="_blank" rel="noopener">usdot-fhwa-stol/cdasim →</a>
+          </article>
+          <article class="card">
+            <h3>Two-arm Rubik's Cube solver</h3>
+            <p>A full-stack two-arm robot that scans, solves and physically turns a Rubik's Cube in under 40 seconds, using dual-camera perception, real-time solving, serial communication and calibrated stepper/servo trajectories.</p>
+            <p class="tags">Manipulation · Multi-Camera Perception · Embedded Control</p>
+          </article>
+          <article class="card">
+            <h3>3D urban digital twin</h3>
+            <p>Calibrated and synchronized a LiDAR and multi-camera mobile sensing platform, built preprocessing for multi-view stitching and LiDAR-camera alignment, and compared neural and geometric 3D reconstruction.</p>
+            <p class="tags">LiDAR · Calibration · Sensor Sync · 3D Reconstruction</p>
+          </article>
         </div>
-        <div>
-          <h3 class="sub">Skills</h3>
-          <dl class="skills">
-            <dt>Programming &amp; ML</dt>
-            <dd>Python, C++11/14, PyTorch, Linux</dd>
-            <dt>Robotics &amp; Simulation</dt>
-            <dd>ROS/ROS2, MuJoCo, Isaac Gym, Robosuite/Robomimic, CARLA, SUMO, CDASim, embedded systems</dd>
-            <dt>Control &amp; Learning</dt>
-            <dd>RL (PPO/SAC), imitation learning (flow-matching and action-chunking policies), residual policy learning, MPC/NMPC, CasADi, vehicle dynamics</dd>
-          </dl>
+      </section>
+
+      <!-- Honors & skills -->
+      <section id="honors" class="section">
+        <h2>Honors &amp; Skills</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="sub">Honors</h3>
+            <ul class="honors">
+              <li><span>2022</span>International Second Prize, RoboMaster University Sim2Real Challenge</li>
+              <li><span>2021</span>National Third Prize, China Robot Competition</li>
+              <li><span>2020</span>National Third Prize, China Robot Competition</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub">Skills</h3>
+            <dl class="skills">
+              <dt>Programming &amp; ML</dt>
+              <dd>Python, C++11/14, PyTorch, Linux</dd>
+              <dt>Robotics &amp; Simulation</dt>
+              <dd>ROS/ROS2, MuJoCo, Isaac Gym, Robosuite/Robomimic, CARLA, SUMO, CDASim, embedded systems</dd>
+              <dt>Control &amp; Learning</dt>
+              <dd>RL (PPO/SAC), imitation learning (flow-matching and action-chunking policies), residual policy learning, MPC/NMPC, CasADi, vehicle dynamics</dd>
+            </dl>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- Interests -->
-    <section id="interests" class="container section">
-      <h2>Beyond Research</h2>
-      <p>Outside the lab I listen to classical music and play the piano.</p>
-      <div class="music">
-        <div class="music-piece">
-          <span class="music-label">Favorite piece</span>
-          <h3>The Lark</h3>
-          <p class="muted">Glinka, arr. Balakirev · performed by Evgeny Kissin</p>
-          <a class="card-link" href="https://www.youtube.com/results?search_query=Kissin+The+Lark+Glinka+Balakirev" target="_blank" rel="noopener">Listen on YouTube →</a>
+      </section>
+
+      <!-- Interests -->
+      <section id="interests" class="section">
+        <h2>Beyond Research</h2>
+        <p>Outside the lab I listen to classical music and play the piano.</p>
+        <div class="music">
+          <div class="music-piece">
+            <span class="music-label">Favorite piece</span>
+            <h3>The Lark</h3>
+            <p class="muted">Glinka, arr. Balakirev · performed by Evgeny Kissin</p>
+            <a class="card-link" href="https://www.youtube.com/results?search_query=Kissin+The+Lark+Glinka+Balakirev" target="_blank" rel="noopener">Listen on YouTube →</a>
+          </div>
+          <figure class="poem" lang="zh-CN">
+            <figcaption>云雀</figcaption>
+            <p>无惧生死&emsp;轻盈无拘</p>
+            <p>翱翔于山间&ensp;吹羽拂清风</p>
+            <p>翱翔于云间&ensp;穿雾迎灿阳</p>
+          </figure>
         </div>
-        <figure class="poem" lang="zh-CN">
-          <figcaption>云雀</figcaption>
-          <p>无惧生死&emsp;轻盈无拘</p>
-          <p>翱翔于山间&ensp;吹羽拂清风</p>
-          <p>翱翔于云间&ensp;穿雾迎灿阳</p>
-        </figure>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 
   <footer class="footer container">
     <p>© <span id="year">2026</span> Zongtan Li · <a href="mailto:zongtanli2023@gmail.com">zongtanli2023@gmail.com</a></p>

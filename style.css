@@ -56,7 +56,7 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-.container { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
 
 h1, h2, h3 { line-height: 1.25; margin: 0; }
 h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
@@ -90,38 +90,44 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
   :root:not([data-theme="light"]) .icon-moon { display: block; }
 }
 
-/* Hero */
-.hero { display: flex; gap: 36px; align-items: flex-start; padding-top: 64px; padding-bottom: 24px; }
-.avatar {
-  flex: 0 0 132px; height: 132px; border-radius: 50%;
-  display: grid; place-items: center;
-  background: var(--accent-soft); color: var(--accent);
-  font-family: "Source Serif 4", Georgia, serif; font-size: 44px; font-weight: 600;
-  border: 1px solid var(--border);
+/* Layout: profile sidebar + content column */
+.layout {
+  display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 56px;
+  align-items: start; padding-top: 40px;
 }
-.hero h1 { font-size: 40px; }
-.role { color: var(--muted); margin: 6px 0 18px; }
-.lede { font-size: 18px; margin: 0 0 12px; }
-.hero p { margin-top: 0; }
-
-.links { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
-.links li a, .links .muted-item {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 6px 12px; border-radius: 8px; font-size: 14px;
-  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+.sidebar { font-size: 15px; }
+.photo {
+  display: block; width: 168px; height: 168px; border-radius: 50%; object-fit: cover;
+  border: 1px solid var(--border); margin-bottom: 18px;
 }
-.links li a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-.links .muted-item { color: var(--muted); background: transparent; }
-.links svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.sidebar h1 { font-size: 28px; }
+.role { color: var(--muted); margin: 6px 0 16px; line-height: 1.5; }
 
-.interests { display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 16px; }
+.side-links { list-style: none; padding: 0; margin: 0 0 8px; }
+.side-links li { margin-bottom: 6px; }
+.side-links a, .side-links .muted-item { display: inline-flex; align-items: center; gap: 9px; color: var(--text); }
+.side-links a:hover { color: var(--accent); }
+.side-links .muted-item { color: var(--muted); }
+.side-links svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.side-block { border-top: 1px solid var(--border); margin-top: 20px; padding-top: 18px; }
+.side-block .sub { margin-bottom: 12px; }
+.side-block .timeline li { font-size: 14px; margin-bottom: 14px; }
+.side-block .tl-head { flex-direction: column; gap: 0; }
+.side-block .tl-head span { font-size: 13px; }
+.side-block .muted { font-size: 13px; line-height: 1.5; }
+
+.interests { display: flex; flex-wrap: wrap; gap: 6px; }
 .interests span {
-  font-size: 13px; padding: 3px 10px; border-radius: 999px;
+  font-size: 12.5px; padding: 2px 9px; border-radius: 999px;
   background: var(--accent-soft); color: var(--accent);
 }
+
+.lede { font-size: 18px; margin: 0 0 12px; }
+.content .section:first-child { padding-top: 0; }
 
 /* Sections */
-.section { padding-top: 48px; padding-bottom: 8px; }
+.section { padding-top: 44px; padding-bottom: 8px; }
 .section > h2 {
   font-size: 28px; margin-bottom: 24px; padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
@@ -192,12 +198,14 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 .footer { padding-top: 48px; padding-bottom: 40px; font-size: 14px; color: var(--muted); }
 .footer p { border-top: 1px solid var(--border); padding-top: 20px; margin: 0; }
 
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 8px; padding-top: 28px; }
+  .photo { width: 120px; height: 120px; }
+}
+
 @media (max-width: 720px) {
   .nav-links { display: none; }
   .nav { justify-content: space-between; }
-  .hero { flex-direction: column; gap: 20px; padding-top: 40px; }
-  .avatar { flex-basis: auto; width: 88px; height: 88px; font-size: 30px; }
-  .hero h1 { font-size: 32px; }
   .research-head { flex-direction: column; gap: 8px; }
   .research-item { padding: 18px; }
   .two-col { grid-template-columns: 1fr; gap: 8px; }
