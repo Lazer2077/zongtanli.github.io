@@ -234,11 +234,6 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 .timeline .edu { display: flex; gap: 12px; align-items: flex-start; }
 .timeline .edu > div { flex: 1; min-width: 0; }
 .seal { flex: none; width: 40px; height: 40px; border-radius: 50%; background: #fff; }
-.seal-text {
-  display: grid; place-items: center; font-size: 11px; font-weight: 700; letter-spacing: .04em;
-  background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border);
-}
-
 /* About */
 .focus-label { font-weight: 600; margin: 20px 0 8px; }
 .focus { margin: 0; padding-left: 20px; }
