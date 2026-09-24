@@ -256,3 +256,6 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
 }
 .featured .stats { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 .role-2 { margin-top: -8px; }
+.figure-narrow img { max-width: 560px; margin: 0 auto; }
+.figure-narrow figcaption { text-align: center; }
+.figure-tall img { max-width: 440px; }
