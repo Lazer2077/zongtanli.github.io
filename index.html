@@ -114,28 +114,18 @@
             <span class="badge">In progress</span>
           </div>
           <p class="focus-question">
-            What can a robot learn about an object's physics from a limited number of real interactions, and how far can it trust what it learned?
+            What can a robot learn about an object's physics from a few real interactions, and how far can it trust it?
           </p>
           <p>
-            Touch does not read out an object's properties directly. A tactile signal mixes the object with the sensor, the contact location, the applied force and the interaction history,
-            so a soft object pressed by a stiff fingertip can look like a stiff object pressed by a soft one.
-            I study how a robot can keep track of the physical explanations still consistent with what it has felt and seen, choose the next press, slide or lift that best separates them,
-            and report stiffness, friction and mass together with the range of interactions those estimates can reliably predict.
+            A touch mixes the object with the sensor and the contact, so one signal can have several physical explanations.
+            I study how a robot can choose presses, slides and lifts, with touch and vision, that tell these explanations apart,
+            and report stiffness, friction and mass along with the interactions they can reliably predict.
           </p>
           <div class="focus-flow" aria-label="Research relation">
             <span>Actions &amp; sensing</span><span class="arrow" aria-hidden="true">→</span>
-            <span>Distinguishable physical explanations</span><span class="arrow" aria-hidden="true">→</span>
+            <span>Distinguishable explanations</span><span class="arrow" aria-hidden="true">→</span>
             <span>Reliable predictions</span>
           </div>
-          <ul class="focus-questions">
-            <li><strong>Identifiability.</strong> Given the sensors and actions, which properties can be told apart, and which stay confounded with the sensor or contact conditions?</li>
-            <li><strong>Active experiments.</strong> Which interaction, sensing configuration or calibration resolves the ambiguity that matters, at the lowest real-world cost?</li>
-            <li><strong>Transfer.</strong> Which learned knowledge still holds under new loads, speeds, fingertips or sensor combinations?</li>
-          </ul>
-          <p class="focus-next">
-            <strong>First step:</strong> active pressing with unknown fingertip compliance, separating object from sensor and predicting responses at loads and speeds never executed,
-            then adding vision to test which ambiguities it resolves. Benchmarked against physics fitting, Bayesian experimental design and real-to-sim-to-real identification.
-          </p>
           <p class="tags">Active Perception · Tactile Sensing · Visuo-Tactile Fusion · System Identification · Experimental Design</p>
         </article>
 
