@@ -37,7 +37,8 @@
     <aside class="sidebar">
       <img class="photo" src="assets/photo.jpg" width="200" height="200" alt="Portrait of Zongtan Li">
       <h1>Zongtan Li</h1>
-      <p class="role">Ph.D. Student<br>College of Engineering<br>University of Georgia</p>
+      <p class="role">Ph.D. Student<br>University of Georgia</p>
+      <p class="role role-2">Visiting Ph.D. Student<br>Georgia Institute of Technology</p>
       <ul class="side-links">
         <li><a href="mailto:zongtanli2023@gmail.com">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a></li>
@@ -52,14 +53,27 @@
       <div class="side-block">
         <h2 class="sub">Education</h2>
         <ul class="timeline">
-          <li>
-            <div class="tl-head"><strong>University of Georgia</strong><span>2023 – present</span></div>
-            <div>Ph.D. Student, College of Engineering</div>
-            <div class="muted">Physical AI, Robot Learning, Reinforcement Learning, Motion Control, Control Theory, Computer Vision</div>
+          <li class="edu">
+            <img class="seal" src="assets/gatech-seal.svg" width="40" height="40" alt="Georgia Tech seal">
+            <div>
+              <div class="tl-head"><strong>Georgia Institute of Technology</strong><span>Present</span></div>
+              <div>Visiting Ph.D. Student</div>
+            </div>
           </li>
-          <li>
-            <div class="tl-head"><strong>Fuzhou University</strong><span>2019 – 2023</span></div>
-            <div>B.Eng. in Automation (Robotics and Intelligent Devices)</div>
+          <li class="edu">
+            <img class="seal" src="assets/uga-seal.svg" width="40" height="40" alt="University of Georgia seal">
+            <div>
+              <div class="tl-head"><strong>University of Georgia</strong><span>2023 – present</span></div>
+              <div>Ph.D. Student, College of Engineering</div>
+              <div class="muted">Physical AI, Robot Learning, Reinforcement Learning, Motion Control, Control Theory, Computer Vision</div>
+            </div>
+          </li>
+          <li class="edu">
+            <span class="seal seal-text" aria-hidden="true">FZU</span>
+            <div>
+              <div class="tl-head"><strong>Fuzhou University</strong><span>2019 – 2023</span></div>
+              <div>B.Eng. in Automation (Robotics and Intelligent Devices)</div>
+            </div>
           </li>
         </ul>
       </div>
@@ -75,21 +89,75 @@
 
     <main class="content">
       <section id="about" class="section">
-        <h2>About</h2>
+        <h2>About Me</h2>
         <p class="lede">
-          I work on robot learning and embodied AI, with one question running through it:
-          how can a learned controller keep improving after deployment without breaking what already works?
+          I'm a Ph.D. student in the College of Engineering at the University of Georgia, currently visiting the Georgia Institute of Technology.
+          I work on robot learning and embodied AI.
         </p>
         <p>
-          My research covers sequential skill acquisition for humanoid controllers, imitation learning that runs faster than the demonstrations,
-          reward-free online adaptation to changing dynamics, and recurrent policies for partially observed control.
-          It draws on optimal control (NMPC), simulation, and hands-on robotic systems.
+          My work is about learned robot controllers that stay dependable after deployment. I want them to get faster, recover from new failures,
+          and adapt when the robot's dynamics change, without breaking anything they could already do.
+          I build on reinforcement and imitation learning and use optimal control, simulation and real-robot experiments.
         </p>
+        <p class="focus-label">What I'm working on now</p>
+        <ul class="focus">
+          <li><strong>Faster-than-demonstration imitation.</strong> Robots taught by teleoperation inherit the operator's slow pace.
+            I re-time demonstrations only within what the low-level controller can physically execute, so policies run faster without the usual collapse in success.</li>
+          <li><strong>Continual skill acquisition for humanoids.</strong> Adding recovery skills to a working whole-body controller without losing any behavior it already had.</li>
+          <li><strong>Reward-free online adaptation.</strong> Correcting a frozen policy's commands online when the robot's dynamics change after training.</li>
+          <li><strong>Memory under partial observability.</strong> Compact recurrent policies that keep track of hidden state over long horizons.</li>
+        </ul>
       </section>
 
       <!-- Research -->
       <section id="research" class="section">
         <h2>Research</h2>
+
+        <article class="research-item featured">
+          <p class="kicker">Current focus</p>
+          <div class="research-head">
+            <h3>Faster imitation by re-timing demonstrations within the controller limit</h3>
+            <span class="badge">ICRA 2027 · under review</span>
+          </div>
+          <p>
+            A policy trained on human teleoperation inherits the operator's pace. Speeding up the demonstrations works only until success collapses at 2–3×.
+            I show the collapse has a mechanical cause: merged commands ask for more displacement per control period than the low-level controller can deliver,
+            and the share of such pairs in the training data predicts where the retrained policy fails.
+            The fix is a one-parameter rule that merges consecutive commands only while their sum stays realizable.
+            It keeps the demonstrated path and speeds up only where the demonstrator left slack.
+          </p>
+
+          <figure class="media">
+            <video controls preload="none" playsinline poster="assets/research/retime-poster.jpg" width="1280" height="720">
+              <source src="assets/research/retime-video.mp4" type="video/mp4">
+              <a href="assets/research/retime-video.mp4">Download the video</a>
+            </video>
+            <figcaption>Video overview (2:40, narrated): the controller limit, the method, and a real-robot command replay.</figcaption>
+          </figure>
+
+          <div class="stats">
+            <div class="stat"><strong>120 → 93<small> s</small></strong><span>real-arm pick-and-place, 22.5% faster than the demonstration</span></div>
+            <div class="stat"><strong>≤ 4<small> mm</small></strong><span>grasp-point error on hardware, vs. 8 cm for uniform re-timing</span></div>
+            <div class="stat"><strong>96%<small> vs 60%</small></strong><span>success on Robomimic Can, vs. uniform 2× speed-up</span></div>
+            <div class="stat"><strong>71%<small> @ 2.3×</small></strong><span>of 429 clips on a G1 whole-body tracker (uniform: 51% @ 2×)</span></div>
+          </div>
+
+          <figure class="media">
+            <a href="assets/research/retime-hardware.jpg" target="_blank" rel="noopener"><img src="assets/research/retime-hardware.jpg" width="1752" height="558" loading="lazy" alt="Three robot-arm views side by side: the original demonstration takes 120 s, uniform re-timing and within-limit re-timing both take 93 s"></a>
+            <figcaption>Real-robot command replay at the same 3× playback speed. Uniform re-timing and ours both finish in 93 s, but 15% of uniform's merged commands exceed the limit and none of ours do.</figcaption>
+          </figure>
+          <div class="media-grid">
+            <figure class="media">
+              <a href="assets/research/retime-miss.jpg" target="_blank" rel="noopener"><img src="assets/research/retime-miss.jpg" width="1400" height="552" loading="lazy" alt="Freeze frame of uniform re-timing: the end effector stops 8 cm short of the grasp target"></a>
+              <figcaption>With uniform re-timing the controller clips the merged commands, so the gripper stops 8 cm short of the grasp point.</figcaption>
+            </figure>
+            <figure class="media figure-plot">
+              <a href="assets/research/retime-results.png" target="_blank" rel="noopener"><img src="assets/research/retime-results.png" width="1400" height="496" loading="lazy" alt="Two plots: success against time to success on Can, and success against tempo on the G1 tracker; within-limit re-timing stays highest"></a>
+              <figcaption>Simulation results. Within-limit re-timing (green stars) stays near nominal success while shortening episodes on Can (left) and on the G1 humanoid tracker (right).</figcaption>
+            </figure>
+          </div>
+          <p class="tags">Imitation Learning · Flow-Matching Policies · Robomimic / Robosuite · Humanoid Motion Tracking · Real-Robot Replay</p>
+        </article>
 
         <article class="research-item">
           <div class="research-head">
@@ -107,23 +175,6 @@
             <div class="stat"><strong>0</strong><span>base successes lost after two updates</span></div>
           </div>
           <p class="tags">Humanoid Control · Residual Feedback Skills · Gated Skill Composition · Behavior Preservation</p>
-        </article>
-
-        <article class="research-item">
-          <div class="research-head">
-            <h3>Imitation-learned robot policies faster than the human demonstrations</h3>
-            <span class="badge">ICRA 2027 · under review</span>
-          </div>
-          <p>
-            When re-timed demonstrations are sped up 2–3×, success collapses because merged commands exceed the displacement the low-level controller can realize per period.
-            A one-parameter, linear-time re-timing rule merges commands only while they remain realizable. It keeps the demonstrated geometry, speeds up where the demonstrator left slack,
-            and lands within 0.1% of the exact shortest-path optimum.
-          </p>
-          <div class="stats">
-            <div class="stat"><strong>96%<small> vs 60%</small></strong><span>success on Robomimic Can, vs. uniform 2× speed-up</span></div>
-            <div class="stat"><strong>71%<small> @ 2.3×</small></strong><span>of 429 clips on a G1 whole-body tracker (uniform: 51% @ 2×)</span></div>
-          </div>
-          <p class="tags">Imitation Learning · Flow-Matching Policies · Robomimic / Robosuite · Humanoid Motion Tracking</p>
         </article>
 
         <article class="research-item">
