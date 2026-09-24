@@ -126,21 +126,44 @@
             <div class="stat"><strong>96%<small> vs 60%</small></strong><span>success on Robomimic Can, vs. uniform 2× speed-up</span></div>
             <div class="stat"><strong>71%<small> @ 2.3×</small></strong><span>of 429 clips on a G1 whole-body tracker (uniform: 51% @ 2×)</span></div>
           </div>
-
           <figure class="media">
             <a href="assets/research/retime-hardware.jpg" target="_blank" rel="noopener"><img src="assets/research/retime-hardware.jpg" width="1752" height="558" loading="lazy" alt="Three robot-arm views side by side: the original demonstration takes 120 s, uniform re-timing and within-limit re-timing both take 93 s"></a>
-            <figcaption>Real-robot command replay at the same 3× playback speed. Uniform re-timing and ours both finish in 93 s, but 15% of uniform's merged commands exceed the limit and none of ours do.</figcaption>
+            <figcaption>Real-robot command replay at the same 3× playback speed.</figcaption>
           </figure>
           <div class="media-grid">
             <figure class="media">
               <a href="assets/research/retime-miss.jpg" target="_blank" rel="noopener"><img src="assets/research/retime-miss.jpg" width="1400" height="552" loading="lazy" alt="Freeze frame of uniform re-timing: the end effector stops 8 cm short of the grasp target"></a>
-              <figcaption>With uniform re-timing the controller clips the merged commands, so the gripper stops 8 cm short of the grasp point.</figcaption>
+              <figcaption>Uniform re-timing: the controller clips merged commands and the gripper stops 8 cm short.</figcaption>
             </figure>
-            <figure class="media figure-plot">
-              <a href="assets/research/retime-results.png" target="_blank" rel="noopener"><img src="assets/research/retime-results.png" width="1400" height="496" loading="lazy" alt="Two plots: success against time to success on Can, and success against tempo on the G1 tracker; within-limit re-timing stays highest"></a>
-              <figcaption>Simulation results. Within-limit re-timing (green stars) stays near nominal success while shortening episodes on Can (left) and on the G1 humanoid tracker (right).</figcaption>
+            <figure class="media table-figure">
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Hardware replay</th><th>Time</th><th>Over limit</th><th>Path</th><th>Grasp error</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Original</th><td>120 s</td><td>0%</td><td>100%</td><td>≤ 4 mm</td></tr>
+                    <tr><th scope="row">Uniform</th><td>93 s</td><td>15%</td><td>89%</td><td>8 cm</td></tr>
+                    <tr class="ours"><th scope="row">Within-limit (ours)</th><td>93 s</td><td>0%</td><td>100%</td><td>≤ 4 mm</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption>Same execution time, different outcome: share of merged commands over the controller limit, share of the demonstrated path retained, and grasp-point error.</figcaption>
             </figure>
           </div>
+          <figure class="media table-figure">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Robomimic (Panda)</th><th>Lift</th><th>Can</th><th>Square</th><th>ToolHang</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Frozen policy, nominal speed</th><td>94%<small> @ 45</small></td><td>92%<small> @ 110</small></td><td>62%<small> @ 168</small></td><td>16%<small> @ 536</small></td></tr>
+                  <tr><th scope="row">Uniform re-timing 1.5×</th><td>96%<small> @ 33</small></td><td>87%<small> @ 91</small></td><td>72%<small> @ 131</small></td><td>8%<small> @ 450</small></td></tr>
+                  <tr><th scope="row">Uniform re-timing 2×</th><td>96%<small> @ 27</small></td><td>60%<small> @ 83</small></td><td>64%<small> @ 110</small></td><td>0%<small> @ 304</small></td></tr>
+                  <tr class="ours"><th scope="row">Within-limit, <i>f</i><sub>max</sub> = 2 (ours)</th><td>98%<small> @ 33</small></td><td>96%<small> @ 92</small></td><td>76%<small> @ 115</small></td><td>24%<small> @ 339</small></td></tr>
+                  <tr class="ours"><th scope="row">Within-limit, <i>f</i><sub>max</sub> = 4 (ours)</th><td>99%<small> @ 30</small></td><td>96%<small> @ 85</small></td><td>61%<small> @ 101</small></td><td>23%<small> @ 251</small></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption>Success rate over 200 held-out seeds @ mean steps to success (fewer is faster). Within-limit re-timing matches or beats the frozen policy while shortening episodes; uniform 2× collapses on Can and ToolHang.</figcaption>
+          </figure>
           <p class="tags">Imitation Learning · Flow-Matching Policies · Robomimic / Robosuite · Humanoid Motion Tracking · Real-Robot Replay</p>
         </article>
 
@@ -164,9 +187,19 @@
             <a href="assets/research/sr-g1.jpg" target="_blank" rel="noopener"><img src="assets/research/sr-g1.jpg" width="1459" height="841" loading="lazy" alt="Unitree G1 after a push: the base SONIC controller falls in both regimes; bank 1 recovers regime 1 and bank 2 recovers both"></a>
             <figcaption>Two sequential acquisitions on the Unitree G1 after the same push. The base SONIC controller falls; each update adds a recovery without losing the earlier one.</figcaption>
           </figure>
-          <figure class="media figure-plot">
-            <a href="assets/research/sr-pipeline.png" target="_blank" rel="noopener"><img src="assets/research/sr-pipeline.png" width="1604" height="664" loading="lazy" alt="Sequential update: measure a failure, acquire a feedback skill, learn when to intervene, validate and admit, with a successful-trajectory memory; runtime composition from observations to base action plus correction"></a>
-            <figcaption>(a) One sequential update, constrained by the memory of successful trajectories. (b) At runtime the skill bank selects one bounded correction from observations alone.</figcaption>
+          <figure class="media table-figure">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Stream</th><th>Base</th><th>Update 1</th><th>Update 2 (ours)</th><th>Unconstrained refit</th><th>Protected replayed exactly<br><small>ours · unconstrained</small></th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">CMU-A (NPMP)</th><td>5</td><td>26</td><td><b>33</b></td><td>46</td><td><b>22/22</b> · 8/22</td></tr>
+                  <tr><th scope="row">CMU-B (NPMP)</th><td>22</td><td>27</td><td><b>38</b></td><td>42</td><td><b>21/21</b> · 10/21</td></tr>
+                  <tr><th scope="row">G1-A (SONIC)</th><td>20</td><td>24</td><td><b>33</b></td><td>35</td><td><b>23/23</b> · 13/23</td></tr>
+                  <tr><th scope="row">G1-B (SONIC)</th><td>13</td><td>16</td><td><b>18</b></td><td>21</td><td><b>17/17</b> · 6/17</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption>Recoveries out of 48 withheld perturbations per stream. An unconstrained refit recovers more, but reproduces far fewer protected trajectories and stops eight of them from completing at all.</figcaption>
           </figure>
           <p class="tags">Humanoid Control · Residual Feedback Skills · Gated Skill Composition · Behavior Preservation</p>
         </article>
@@ -186,16 +219,24 @@
             <div class="stat"><strong>+42.7 / +65.1</strong><span>return on actuator permutation and orthogonal mix, where identification alone loses return</span></div>
             <div class="stat"><strong>0</strong><span>residual delay loss, vs. 44.6 and 113.2 return lost by plain identification</span></div>
           </div>
-          <div class="media-row">
-            <figure class="media figure-plot" style="--ar: 2.770">
-              <a href="assets/research/eca-flow.png" target="_blank" rel="noopener"><img src="assets/research/eca-flow.png" width="892" height="322" loading="lazy" alt="ECA data flow: policy, compensate, body, predict, estimate, reject and select"></a>
-              <figcaption>ECA data flow. The compensator corrects the command being executed now and learns from it for the next step.</figcaption>
-            </figure>
-            <figure class="media figure-plot" style="--ar: 2.429">
-              <a href="assets/research/eca-return.png" target="_blank" rel="noopener"><img src="assets/research/eca-return.png" width="1239" height="510" loading="lazy" alt="Return against rotation angle of the input map on Reacher and Pusher; ECA stays close to the oracle inverse"></a>
-              <figcaption>Return under actuator rotations on two MuJoCo manipulators. ECA (green) stays near the oracle inverse while the frozen policy and additive corrections degrade.</figcaption>
-            </figure>
-          </div>
+          <figure class="media figure-plot figure-lead">
+            <a href="assets/research/eca-flow.png" target="_blank" rel="noopener"><img src="assets/research/eca-flow.png" width="892" height="322" loading="lazy" alt="ECA data flow: policy, compensate, body, predict, estimate, reject and select"></a>
+            <figcaption>ECA data flow. The compensator corrects the command being executed now and learns from it for the next step.</figcaption>
+          </figure>
+          <figure class="media table-figure">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Held-out cohort</th><th>Worst loss</th><th>90° rotation</th><th>120° rotation</th><th>Input-map mean</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Reacher · identify &amp; invert</th><td>56.4 <small>(delay)</small></td><td>+29.8</td><td>+37.8</td><td>+19.2</td></tr>
+                  <tr class="ours"><th scope="row">Reacher · ECA</th><td><b>0.0</b></td><td><b>+31.7</b></td><td><b>+44.3</b></td><td><b>+26.6</b></td></tr>
+                  <tr><th scope="row">Pusher · identify &amp; invert</th><td>116.6 <small>(delay)</small></td><td>+75.2</td><td>+98.4</td><td>+41.4</td></tr>
+                  <tr class="ours"><th scope="row">Pusher · ECA</th><td><b>1.2</b> <small>(gain 0.5)</small></td><td><b>+75.9</b></td><td><b>+104.7</b></td><td><b>+54.7</b></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption>Evaluated once on policies trained after the method was frozen. Gains are return over the frozen policy; worst loss is the largest return lost on a condition that needs no correction (lower is better).</figcaption>
+          </figure>
           <p class="tags">Online Adaptation · Adaptive Control · Fault-Tolerant Control · Frozen Policies · MuJoCo</p>
         </article>
 
@@ -213,16 +254,25 @@
             <div class="stat"><strong>+0.456</strong><span>normalized IQM over a tuned TransformerXL in the derivative regime, on held-out seeds</span></div>
             <div class="stat"><strong>5×</strong><span>training budget, where the lead holds and widens</span></div>
           </div>
-          <div class="media-row">
-            <figure class="media figure-plot" style="--ar: 1.959">
-              <a href="assets/research/duocell-step.png" target="_blank" rel="noopener"><img src="assets/research/duocell-step.png" width="1236" height="631" loading="lazy" alt="One DuoCell step: a structured predict-correct-reread path and a GRU path run in parallel on a shared embedding and are concatenated"></a>
-              <figcaption>One DuoCell step. A structured predict–correct–reread path and a GRU path share an encoder and a fixed state budget.</figcaption>
-            </figure>
-            <figure class="media figure-plot" style="--ar: 1.001">
-              <a href="assets/research/duocell-results.png" target="_blank" rel="noopener"><img src="assets/research/duocell-results.png" width="824" height="823" loading="lazy" alt="Paired normalized IQM differences with 95% bootstrap intervals; DuoCell leads every tuned baseline"></a>
-              <figcaption>Paired differences with 95% intervals. DuoCell leads every tuned baseline; ablations trace the gain to the gated reread.</figcaption>
-            </figure>
-          </div>
+          <figure class="media figure-plot figure-lead">
+            <a href="assets/research/duocell-step.png" target="_blank" rel="noopener"><img src="assets/research/duocell-step.png" width="1236" height="631" loading="lazy" alt="One DuoCell step: a structured predict-correct-reread path and a GRU path run in parallel on a shared embedding and are concatenated"></a>
+            <figcaption>One DuoCell step. A structured predict–correct–reread path and a GRU path share an encoder and a fixed state budget.</figcaption>
+          </figure>
+          <figure class="media table-figure">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Hidden velocities (mean AUC)</th><th>DuoCell, default</th><th>DuoCell, tuned</th><th>TransformerXL, tuned</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Hopper-P</th><td>491.6</td><td><b>679.8</b></td><td>436.3</td></tr>
+                  <tr><th scope="row">Walker-P</th><td>457.5</td><td><b>500.2</b></td><td>296.0</td></tr>
+                  <tr><th scope="row">HalfCheetah-P</th><td>782.6</td><td><b>1505.1</b></td><td>1250.4</td></tr>
+                  <tr><th scope="row">Ant-P</th><td>391.5</td><td><b>431.2</b></td><td>415.4</td></tr>
+                  <tr class="ours"><th scope="row">Normalized IQM</th><td>0.322</td><td><b>0.770</b></td><td>0.223</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption>Masked MuJoCo with positions observed and velocities hidden. Both arms get the same per-environment learning-rate search; on held-out seeds the lead over TransformerXL is +0.456 normalized IQM.</figcaption>
+          </figure>
           <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Belief Filtering</p>
         </article>
 
@@ -246,16 +296,34 @@
             <a href="assets/research/born-diagram.jpg" target="_blank" rel="noopener"><img src="assets/research/born-diagram.jpg" width="1200" height="800" loading="lazy" alt="A traditional recurrent policy with contractive memory and softmax readout, next to the Born-rule policy with a phase that advances per event and an interference-based Born readout"></a>
             <figcaption>A traditional recurrent policy must learn a periodic code from reward. The Born-rule policy builds the cyclic structure in: each event advances a phase, and the Born readout decodes it.</figcaption>
           </figure>
-          <div class="media-row">
-            <figure class="media figure-plot" style="--ar: 2.489">
-              <a href="assets/research/born-lengthgen.png" target="_blank" rel="noopener"><img src="assets/research/born-lengthgen.png" width="1775" height="713" loading="lazy" alt="Left: Born policies keep accuracy from length 14 to 1,600 while a Transformer collapses to chance. Right: fraction of seeds that length-generalize; only Born succeeds on every group"></a>
-              <figcaption>Length generalization. Born keeps its accuracy far beyond the training length while attention collapses (left); GRU, LSTM and Transformer each have a group they fail on, Born has none (right).</figcaption>
-            </figure>
-            <figure class="media figure-plot" style="--ar: 2.709">
-              <a href="assets/research/born-rl.png" target="_blank" rel="noopener"><img src="assets/research/born-rl.png" width="2135" height="788" loading="lazy" alt="Success rate against environment steps on parity and Z3: Born with 337 parameters rises first, the Transformer later, GRU and LSTM stay at chance"></a>
-              <figcaption>Learning from a sparse terminal reward. Born (337 parameters) reaches near-optimal success first; GRU and LSTM stay at chance.</figcaption>
-            </figure>
-          </div>
+          <figure class="media table-figure">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Length generalization</th><th>Params</th><th>Z<sub>2</sub> (parity)</th><th>Z<sub>3</sub></th><th>Z<sub>4</sub></th><th>Z<sub>5</sub></th></tr></thead>
+                <tbody>
+                  <tr class="ours"><th scope="row">Born recurrence (ours)</th><td>337–433</td><td><b>9/10</b></td><td><b>9/10</b></td><td>6/10</td><td><b>9/10</b></td></tr>
+                  <tr><th scope="row">GRU</th><td>3.7k</td><td>0/10</td><td>10/10</td><td>10/10</td><td>9/10</td></tr>
+                  <tr><th scope="row">LSTM</th><td>5.0k</td><td>1/10</td><td>9/10</td><td>10/10</td><td>10/10</td></tr>
+                  <tr><th scope="row">Transformer</th><td>20k</td><td>0/10</td><td>0/10</td><td>0/10</td><td>0/10</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption>Seeds (of 10) that still track the count at length 1,600 after training on length ≤ 14; the Transformer is evaluated at 400, the longest it reaches. Only Born is above chance on every group.</figcaption>
+          </figure>
+          <figure class="media table-figure">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Sparse terminal reward</th><th>GRU <small>1.1k</small></th><th>LSTM <small>1.5k</small></th><th>Transformer <small>5.9k</small></th><th>Born <small>0.4k</small></th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Parity · success</th><td>0.50</td><td>0.50</td><td>0.88</td><td><b>0.90</b></td></tr>
+                  <tr><th scope="row">Parity · steps to target</th><td>never</td><td>never</td><td>15.7M</td><td><b>2.6M</b></td></tr>
+                  <tr><th scope="row">Z<sub>3</sub> · success</th><td>0.40</td><td>0.33</td><td>0.97</td><td><b>0.99</b></td></tr>
+                  <tr><th scope="row">Z<sub>3</sub> · steps to target</th><td>never</td><td>never</td><td>2.43M</td><td><b>0.26M</b></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption>Reinforcement learning from a single end-of-episode reward, five seeds. Born reaches the target with about 6× (parity) and 9× (Z<sub>3</sub>) fewer environment steps than a Transformer 16× larger; gated recurrences never exceed chance.</figcaption>
+          </figure>
           <p class="tags">Reinforcement Learning · POMDPs · Recurrent Policies · Quantum-Inspired Networks</p>
         </article>
 
@@ -276,18 +344,28 @@
             <div class="stat"><strong>3.2–4.4%</strong><span>of that from optimized dual-motor torque allocation alone</span></div>
             <div class="stat"><strong>&lt; 1<small> s</small></strong><span>average solve time for a 15 s prediction horizon</span></div>
           </div>
-          <figure class="media">
+          <figure class="media figure-plot">
             <a href="assets/research/ev-corridor.jpg" target="_blank" rel="noopener"><img src="assets/research/ev-corridor.jpg" width="1600" height="632" loading="lazy" alt="VISSIM network of Shallowford Road in Chattanooga, Tennessee, with eight signalized intersections"></a>
             <figcaption>Test scenario: Shallowford Road in Chattanooga, TN, modeled in VISSIM with eight signalized intersections.</figcaption>
           </figure>
-          <div class="media-row">
-            <figure class="media figure-plot" style="--ar: 1.720">
+          <div class="media-grid">
+            <figure class="media figure-plot">
               <a href="assets/research/ev-spacetime.png" target="_blank" rel="noopener"><img src="assets/research/ev-spacetime.png" width="1400" height="814" loading="lazy" alt="Space-time diagram along the corridor: the optimized trajectory glides through signals with fewer stops than the preceding vehicle"></a>
-              <figcaption>Space-time diagram with signal phases. The optimized trajectory (blue) avoids long acceleration and braking and spends less time stopped at red lights than the preceding vehicle (black).</figcaption>
+              <figcaption>Space-time diagram. The optimized trajectory (blue) avoids long acceleration and braking and waits less at red lights than the preceding vehicle (black).</figcaption>
             </figure>
-            <figure class="media figure-plot" style="--ar: 2.295">
-              <a href="assets/research/ev-architecture.png" target="_blank" rel="noopener"><img src="assets/research/ev-architecture.png" width="1400" height="610" loading="lazy" alt="Control architecture: the core algorithm uses traffic information, drive information and battery state to command the motor controller"></a>
-              <figcaption>Control architecture. The core algorithm combines traffic information, vehicle state and battery state to command both motors.</figcaption>
+            <figure class="media table-figure">
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Vehicle</th><th>Energy saved</th><th>From torque split</th><th>Solve time</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">#101</th><td>12.80%</td><td>3.92%</td><td>0.86 s</td></tr>
+                    <tr><th scope="row">#9799</th><td><b>24.52%</b></td><td>4.40%</td><td>0.92 s</td></tr>
+                    <tr><th scope="row">#10196</th><td>13.54%</td><td>3.16%</td><td>0.96 s</td></tr>
+                    <tr><th scope="row">#11084</th><td>18.65%</td><td>3.54%</td><td>0.84 s</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption>Battery energy saved relative to the preceding vehicle, the part due to optimized dual-motor torque allocation alone, and average NMPC solve time for a 15 s horizon.</figcaption>
             </figure>
           </div>
           <p class="tags">NMPC · CasADi · Eco-Driving · Dual-Motor EV · Connected and Automated Vehicles</p>
@@ -337,16 +415,23 @@
       <section id="projects" class="section">
         <h2>Projects</h2>
         <div class="cards">
+          <article class="card card-wide">
+            <h3>Two-arm Rubik's Cube solver</h3>
+            <p>A full-stack two-arm robot that scans, solves and physically turns a Rubik's Cube in under 40 seconds, using dual-camera perception, real-time solving, serial communication and calibrated stepper/servo trajectories.</p>
+            <div class="frames">
+              <img src="assets/projects/cube-1.jpg" width="800" height="600" loading="lazy" alt="The robot's grippers spin the cube mid-move">
+              <img src="assets/projects/cube-2.jpg" width="800" height="600" loading="lazy" alt="Both grippers hold the cube">
+              <img src="assets/projects/cube-3.jpg" width="800" height="600" loading="lazy" alt="The top gripper turns a face of the cube">
+              <img src="assets/projects/cube-4.jpg" width="800" height="600" loading="lazy" alt="The top gripper releases after a turn">
+            </div>
+            <p class="frames-caption">Keyframes from one solve, in order.</p>
+            <p class="tags">Manipulation · Multi-Camera Perception · Embedded Control</p>
+          </article>
           <article class="card">
             <h3>CDASim development</h3>
             <p>Built components for a vehicle co-simulation platform that connects ROS, CARLA and SUMO, including inter-process communication and simulator integration.</p>
             <p class="tags">ROS/ROS2 · CARLA · SUMO · Co-Simulation</p>
             <a class="card-link" href="https://github.com/usdot-fhwa-stol/cdasim" target="_blank" rel="noopener">usdot-fhwa-stol/cdasim →</a>
-          </article>
-          <article class="card">
-            <h3>Two-arm Rubik's Cube solver</h3>
-            <p>A full-stack two-arm robot that scans, solves and physically turns a Rubik's Cube in under 40 seconds, using dual-camera perception, real-time solving, serial communication and calibrated stepper/servo trajectories.</p>
-            <p class="tags">Manipulation · Multi-Camera Perception · Embedded Control</p>
           </article>
           <article class="card">
             <h3>3D urban digital twin</h3>
